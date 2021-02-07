@@ -11,7 +11,12 @@ import Html.Events exposing (onClick)
 
 
 main =
-    Browser.sandbox { init = init, update = update, view = view }
+    Browser.document
+        { init = init
+        , update = update
+        , view = view
+        , subscriptions = \_ -> Sub.none
+        }
 
 
 
@@ -33,24 +38,26 @@ type alias Question =
     }
 
 
-init : Model
-init =
-    { questions =
-        [ { id = 1
-          , sentence = "I ... not think about it."
-          , answerOptions = [ "can", "have to", "will", "expect" ]
-          , rightAnswer = "can"
-          , answer = Nothing
-          }
-        , { id = 2
-          , sentence = "You ... imagine what I have whent through."
-          , answerOptions = [ "may be", "can easily", "can hardly", "should try" ]
-          , rightAnswer = "can hardly"
-          , answer = Nothing
-          }
-        ]
-    , currentQuestionId = 1
-    }
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( { questions =
+            [ { id = 1
+              , sentence = "I ... not think about it."
+              , answerOptions = [ "can", "have to", "will", "expect" ]
+              , rightAnswer = "can"
+              , answer = Nothing
+              }
+            , { id = 2
+              , sentence = "You ... imagine what I have whent through."
+              , answerOptions = [ "may be", "can easily", "can hardly", "should try" ]
+              , rightAnswer = "can hardly"
+              , answer = Nothing
+              }
+            ]
+      , currentQuestionId = 1
+      }
+    , Cmd.none
+    )
 
 
 
@@ -62,7 +69,7 @@ type Msg
     | ChoseAnswer String
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ChoseAnswer answer ->
@@ -74,18 +81,30 @@ update msg model =
                     else
                         q
             in
-            { model | questions = List.map updateQuestion model.questions }
+            ( { model | questions = List.map updateQuestion model.questions }, Cmd.none )
 
         ChoseQuestion id ->
-            { model | currentQuestionId = id }
+            ( { model | currentQuestionId = id }, Cmd.none )
 
 
 
 -- VIEW
 
 
-view : Model -> Html Msg
+type alias Document msg =
+    { title : String
+    , body : List (Html msg)
+    }
+
+
+view : Model -> Document Msg
 view model =
+    { title = "Frog"
+    , body = [ viewBody model ]
+    }
+
+
+viewBody model =
     let
         question =
             case model.questions |> List.filter (\q -> q.id == model.currentQuestionId) |> List.head of
