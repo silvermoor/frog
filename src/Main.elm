@@ -1,9 +1,10 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, button, div, li, span, text, ul)
-import Html.Attributes exposing (style)
-import Html.Events exposing (onClick)
+import Css exposing (..)
+import Html.Styled exposing (Html, button, div, li, span, text, toUnstyled, ul)
+import Html.Styled.Attributes exposing (css, style)
+import Html.Styled.Events exposing (onClick)
 
 
 
@@ -97,10 +98,9 @@ type alias Document msg =
     }
 
 
-view : Model -> Document Msg
 view model =
     { title = "Frog"
-    , body = [ viewBody model ]
+    , body = [ (viewBody >> toUnstyled) model ]
     }
 
 
@@ -114,7 +114,18 @@ viewBody model =
                 Nothing ->
                     Question 0 "oops..." [ "ok" ] "" Nothing
     in
-    div [ style "margin" "20px" ]
+    div
+        [ css
+            [ width (px 460)
+            , margin2 (px 20) auto
+            , boxShadow4 (px 0) (px 8) (px 32) (rgba 0 0 0 0.2)
+            , borderRadius (px 8)
+            , fontFamily sansSerif
+            , fontSize (pt 18)
+            , color (rgb 80 80 80)
+            , padding (px 12)
+            ]
+        ]
         [ text question.sentence
         , ul [] <| List.map (viewOption question.answer) question.answerOptions
         , viewQuestions model.questions
@@ -126,20 +137,39 @@ viewQuestions questions =
         qButton q =
             span
                 [ onClick (ChoseQuestion q.id)
-                , style "padding" "6px"
+                , css
+                    [ padding (px 12)
+                    , margin (px 12)
+                    , borderRadius (px 32)
+                    , display inlineBlock
+                    , width (px 32)
+                    , height (px 32)
+                    , textAlign center
+                    , cursor pointer
+                    , backgroundColor (hex "aaaaff")
+                    , color (hex "fff")
+                    ]
                 ]
-                [ text "q" ]
+                [ text "?" ]
     in
     div [] <| List.map qButton questions
 
 
 viewOption answer option =
-    li [ onClick (ChoseAnswer option) ]
-        [ text " "
-        , if answer == Just option then
-            text "—"
+    li
+        [ onClick (ChoseAnswer option)
+        , css
+            [ listStyle none
+            , lineHeight (px 32)
+            , padding (px 8)
+            , borderRadius (px 8)
+            , if answer == Just option then
+                backgroundColor (hex "9f9")
 
-          else
-            text "-"
+              else
+                backgroundColor (hex "fff")
+            ]
+        ]
+        [ text " "
         , text option
         ]
