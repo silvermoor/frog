@@ -118,12 +118,11 @@ viewBody model =
         [ css
             [ width (px 460)
             , margin2 (px 20) auto
-            , boxShadow4 (px 0) (px 8) (px 32) (rgba 0 0 0 0.2)
-            , borderRadius (px 8)
             , fontFamily sansSerif
             , fontSize (pt 18)
             , color (rgb 80 80 80)
             , padding (px 12)
+            , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
             ]
         ]
         [ text question.sentence
