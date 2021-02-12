@@ -1,0 +1,30 @@
+---
+questions:
+- variants:
+  - sentence: I ... not think about it.
+    answer: can
+    options:
+    - have to
+    - will
+    - expect
+  - sentence: I ... not care about it.
+    answer: can
+    options:
+    - have to
+    - will
+    - expect
+  recommendation: "text of recommendation"
+- variants:
+  - sentence: I ... not think about it.
+    answer: can
+    options:
+    - have to
+    - will
+    - expect
+  - sentence: I ... not care about it.
+    answer: can
+    options:
+    - have to
+    - will
+    - expect
+  recommendation: "text of recommendation"
