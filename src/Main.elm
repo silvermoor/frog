@@ -6,6 +6,7 @@ import Html.Styled exposing (Html, button, div, li, span, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
 import Http
+import Json.Decode as JD
 import Url
 import Url.Builder
 
@@ -61,9 +62,9 @@ init _ =
       , currentQuestionId = 1
       }
     , Http.get
-      { url = Url.Builder.absolute [ "data.yml" ] []
-      , expect = Http.expectString GotData
-      }
+        { url = Url.Builder.absolute [ "data.json" ] []
+        , expect = Http.expectJson GotData (JD.field "questions" JD.string)
+        }
     )
 
 
@@ -100,8 +101,6 @@ update msg model =
 
 
 -- API
-
-
 -- VIEW
 
 
