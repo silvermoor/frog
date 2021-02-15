@@ -167,7 +167,7 @@ viewBody model =
                     , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
                     ]
                 ]
-                [ text "sentence"
+                [ text variant.sentence
                 , ul [] <| List.map (viewOption q.answer) (variant.answer :: variant.options)
                 , viewQuestions model.questions
                 ]
