@@ -5,6 +5,9 @@ import Css exposing (..)
 import Html.Styled exposing (Html, button, div, li, span, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
+import Http
+import Url
+import Url.Builder
 
 
 
@@ -57,7 +60,10 @@ init _ =
             ]
       , currentQuestionId = 1
       }
-    , Cmd.none
+    , Http.get
+      { url = Url.Builder.absolute [ "data.yml" ] []
+      , expect = Http.expectString GotData
+      }
     )
 
 
@@ -68,6 +74,7 @@ init _ =
 type Msg
     = ChoseQuestion Int
     | ChoseAnswer String
+    | GotData (Result Http.Error String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -87,6 +94,12 @@ update msg model =
         ChoseQuestion id ->
             ( { model | currentQuestionId = id }, Cmd.none )
 
+        GotData _ ->
+            ( model, Cmd.none )
+
+
+
+-- API
 
 
 -- VIEW
