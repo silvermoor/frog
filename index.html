@@ -798,11 +798,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.a6.ay === region.bo.ay)
+	if (region.a7.ay === region.bp.ay)
 	{
-		return 'on line ' + region.a6.ay;
+		return 'on line ' + region.a7.ay;
 	}
-	return 'on lines ' + region.a6.ay + ' through ' + region.bo.ay;
+	return 'on lines ' + region.a7.ay + ' through ' + region.bp.ay;
 }
 
 
@@ -2719,7 +2719,7 @@ var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
 		G: func(record.G),
-		a7: record.a7,
+		a8: record.a8,
 		a4: record.a4
 	}
 });
@@ -2989,7 +2989,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 
 		var value = result.a;
 		var message = !tag ? value : tag < 3 ? value.a : value.G;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.a7;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.a8;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
 			(tag == 2 ? value.b : tag == 3 && value.a4) && event.preventDefault(),
@@ -3982,7 +3982,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.cB,
 		impl.cz,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.a5 && impl.a5(sendToApp)
+			var divertHrefToApp = impl.a6 && impl.a6(sendToApp)
 			var view = impl.cE;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -3991,7 +3991,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.bh);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.bi);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
@@ -4057,7 +4057,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		a5: function(sendToApp)
+		a6: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4073,9 +4073,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.bI === next.bI
-							&& curr.bu === next.bu
-							&& curr.bF.a === next.bF.a
+							&& curr.bJ === next.bJ
+							&& curr.bv === next.bv
+							&& curr.bG.a === next.bG.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4246,12 +4246,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		bP: _Browser_getScene(),
+		bQ: _Browser_getScene(),
 		b$: {
 			b1: _Browser_window.pageXOffset,
 			b2: _Browser_window.pageYOffset,
 			b0: _Browser_doc.documentElement.clientWidth,
-			bt: _Browser_doc.documentElement.clientHeight
+			bu: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4262,7 +4262,7 @@ function _Browser_getScene()
 	var elem = _Browser_doc.documentElement;
 	return {
 		b0: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		bt: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		bu: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4285,15 +4285,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			bP: {
+			bQ: {
 				b0: node.scrollWidth,
-				bt: node.scrollHeight
+				bu: node.scrollHeight
 			},
 			b$: {
 				b1: node.scrollLeft,
 				b2: node.scrollTop,
 				b0: node.clientWidth,
-				bt: node.clientHeight
+				bu: node.clientHeight
 			}
 		};
 	});
@@ -4323,18 +4323,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			bP: _Browser_getScene(),
+			bQ: _Browser_getScene(),
 			b$: {
 				b1: x,
 				b2: y,
 				b0: _Browser_doc.documentElement.clientWidth,
-				bt: _Browser_doc.documentElement.clientHeight
+				bu: _Browser_doc.documentElement.clientHeight
 			},
 			cc: {
 				b1: x + rect.left,
 				b2: y + rect.top,
 				b0: rect.width,
-				bt: rect.height
+				bu: rect.height
 			}
 		};
 	});
@@ -4396,8 +4396,8 @@ var _Http_toTask = F3(function(router, toTask, request)
 
 		_Http_configureRequest(xhr, request);
 
-		request.bh.a && xhr.setRequestHeader('Content-Type', request.bh.a);
-		xhr.send(request.bh.b);
+		request.bi.a && xhr.setRequestHeader('Content-Type', request.bi.a);
+		xhr.send(request.bi.b);
 
 		return function() { xhr.c = true; xhr.abort(); };
 	});
@@ -4408,7 +4408,7 @@ var _Http_toTask = F3(function(router, toTask, request)
 
 function _Http_configureRequest(xhr, request)
 {
-	for (var headers = request.bs; headers.b; headers = headers.b) // WHILE_CONS
+	for (var headers = request.bt; headers.b; headers = headers.b) // WHILE_CONS
 	{
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
@@ -4438,7 +4438,7 @@ function _Http_toMetadata(xhr)
 		cD: xhr.responseURL,
 		cx: xhr.status,
 		cy: xhr.statusText,
-		bs: _Http_parseHeaders(xhr.getAllResponseHeaders())
+		bt: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
 
@@ -5085,7 +5085,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {br: fragment, bu: host, bD: path, bF: port_, bI: protocol, bJ: query};
+		return {bs: fragment, bv: host, bE: path, bG: port_, bJ: protocol, bK: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5392,7 +5392,7 @@ var $author$project$Main$Question = F4(
 	});
 var $author$project$Main$Variant = F3(
 	function (sentence, options, answer) {
-		return {W: answer, a2: options, bQ: sentence};
+		return {W: answer, a2: options, a5: sentence};
 	});
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$int = _Json_decodeInt;
@@ -6043,7 +6043,7 @@ var $elm$http$Http$Request = function (a) {
 };
 var $elm$http$Http$State = F2(
 	function (reqs, subs) {
-		return {bM: reqs, bT: subs};
+		return {bN: reqs, bT: subs};
 	});
 var $elm$http$Http$init = $elm$core$Task$succeed(
 	A2($elm$http$Http$State, $elm$core$Dict$empty, _List_Nil));
@@ -6117,7 +6117,7 @@ var $elm$http$Http$onEffects = F4(
 				return $elm$core$Task$succeed(
 					A2($elm$http$Http$State, reqs, subs));
 			},
-			A3($elm$http$Http$updateReqs, router, cmds, state.bM));
+			A3($elm$http$Http$updateReqs, router, cmds, state.bN));
 	});
 var $elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
@@ -6175,9 +6175,9 @@ var $elm$http$Http$cmdMap = F2(
 			return $elm$http$Http$Request(
 				{
 					b5: r.b5,
-					bh: r.bh,
+					bi: r.bi,
 					cd: A2(_Http_mapExpect, func, r.cd),
-					bs: r.bs,
+					bt: r.bt,
 					ck: r.ck,
 					cA: r.cA,
 					bX: r.bX,
@@ -6204,11 +6204,11 @@ var $elm$http$Http$subscription = _Platform_leaf('Http');
 var $elm$http$Http$request = function (r) {
 	return $elm$http$Http$command(
 		$elm$http$Http$Request(
-			{b5: false, bh: r.bh, cd: r.cd, bs: r.bs, ck: r.ck, cA: r.cA, bX: r.bX, cD: r.cD}));
+			{b5: false, bi: r.bi, cd: r.cd, bt: r.bt, ck: r.ck, cA: r.cA, bX: r.bX, cD: r.cD}));
 };
 var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
-		{bh: $elm$http$Http$emptyBody, cd: r.cd, bs: _List_Nil, ck: 'GET', cA: $elm$core$Maybe$Nothing, bX: $elm$core$Maybe$Nothing, cD: r.cD});
+		{bi: $elm$http$Http$emptyBody, cd: r.cd, bt: _List_Nil, ck: 'GET', cA: $elm$core$Maybe$Nothing, bX: $elm$core$Maybe$Nothing, cD: r.cD});
 };
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
@@ -6688,9 +6688,9 @@ var $rtfeldman$elm_css$Css$Structure$withKeyframeDeclarations = F2(
 			compactedDeclarations);
 	});
 var $rtfeldman$elm_css$Css$Structure$compactStylesheet = function (_v0) {
-	var charset = _v0.bl;
-	var imports = _v0.bv;
-	var namespaces = _v0.bB;
+	var charset = _v0.bm;
+	var imports = _v0.bw;
+	var namespaces = _v0.bC;
 	var declarations = _v0.ca;
 	var _v1 = A3(
 		$elm$core$List$foldr,
@@ -6700,7 +6700,7 @@ var $rtfeldman$elm_css$Css$Structure$compactStylesheet = function (_v0) {
 	var keyframesByName = _v1.a;
 	var compactedDeclarations = _v1.b;
 	var finalDeclarations = A2($rtfeldman$elm_css$Css$Structure$withKeyframeDeclarations, keyframesByName, compactedDeclarations);
-	return {bl: charset, ca: finalDeclarations, bv: imports, bB: namespaces};
+	return {bm: charset, ca: finalDeclarations, bw: imports, bC: namespaces};
 };
 var $elm$core$Maybe$map = F2(
 	function (f, maybe) {
@@ -6744,7 +6744,7 @@ var $elm$core$List$filter = F2(
 			list);
 	});
 var $rtfeldman$elm_css$Css$Structure$Output$mediaExpressionToString = function (expression) {
-	return '(' + (expression.bq + (A2(
+	return '(' + (expression.br + (A2(
 		$elm$core$Maybe$withDefault,
 		'',
 		A2(
@@ -7004,9 +7004,9 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration = function (d
 	}
 };
 var $rtfeldman$elm_css$Css$Structure$Output$prettyPrint = function (_v0) {
-	var charset = _v0.bl;
-	var imports = _v0.bv;
-	var namespaces = _v0.bB;
+	var charset = _v0.bm;
+	var imports = _v0.bw;
+	var namespaces = _v0.bC;
 	var declarations = _v0.ca;
 	return A2(
 		$elm$core$String$join,
@@ -8236,13 +8236,13 @@ var $rtfeldman$elm_css$Css$Preprocess$Resolve$toDeclarations = function (snippet
 	}
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$toStructure = function (_v0) {
-	var charset = _v0.bl;
-	var imports = _v0.bv;
-	var namespaces = _v0.bB;
+	var charset = _v0.bm;
+	var imports = _v0.bw;
+	var namespaces = _v0.bC;
 	var snippets = _v0.bS;
 	var declarations = $rtfeldman$elm_css$Css$Preprocess$Resolve$extract(
 		A2($elm$core$List$concatMap, $rtfeldman$elm_css$Css$Preprocess$unwrapSnippet, snippets));
-	return {bl: charset, ca: declarations, bv: imports, bB: namespaces};
+	return {bm: charset, ca: declarations, bw: imports, bC: namespaces};
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$compileHelp = function (sheet) {
 	return $rtfeldman$elm_css$Css$Structure$Output$prettyPrint(
@@ -8288,7 +8288,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$snippetFromPair = function (_v0) {
 				])));
 };
 var $rtfeldman$elm_css$Css$Preprocess$stylesheet = function (snippets) {
-	return {bl: $elm$core$Maybe$Nothing, bv: _List_Nil, bB: _List_Nil, bS: snippets};
+	return {bm: $elm$core$Maybe$Nothing, bw: _List_Nil, bC: _List_Nil, bS: snippets};
 };
 var $rtfeldman$elm_css$VirtualDom$Styled$toDeclaration = function (dict) {
 	return $rtfeldman$elm_css$Css$Preprocess$Resolve$compile(
@@ -8956,8 +8956,8 @@ var $elm$core$String$fromFloat = _String_fromNumber;
 var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 	function (units, unitLabel, numericValue) {
 		return {
-			a9: 0,
-			bj: 0,
+			ba: 0,
+			bk: 0,
 			ac: 0,
 			l: 0,
 			ax: 0,
@@ -9021,7 +9021,7 @@ var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-r
 var $rtfeldman$elm_css$Html$Styled$li = $rtfeldman$elm_css$Html$Styled$node('li');
 var $rtfeldman$elm_css$Css$lineHeight = $rtfeldman$elm_css$Css$prop1('line-height');
 var $rtfeldman$elm_css$Css$listStyle = $rtfeldman$elm_css$Css$prop1('list-style');
-var $rtfeldman$elm_css$Css$none = {X: 0, bg: 0, n: 0, a: 0, f: 0, cg: 0, bx: 0, a_: 0, ai: 0, N: 0, x: 0, c: 0, b: 0, a0: 0, aR: 0, cq: 0, u: 0, aS: 0, cu: 0, am: 0, U: 0, q: 0, e: 0, cC: 0, z: 'none'};
+var $rtfeldman$elm_css$Css$none = {X: 0, bh: 0, n: 0, a: 0, f: 0, cg: 0, by: 0, a_: 0, ai: 0, N: 0, x: 0, c: 0, b: 0, a0: 0, aR: 0, cq: 0, u: 0, aS: 0, cu: 0, am: 0, U: 0, q: 0, e: 0, cC: 0, z: 'none'};
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 0, a: a};
 };
@@ -9218,7 +9218,7 @@ var $author$project$Main$viewBody = function (model) {
 				var v = _v1.a;
 				return v;
 			} else {
-				return {W: 'ok', a2: _List_Nil, bQ: ''};
+				return {W: 'ok', a2: _List_Nil, a5: ''};
 			}
 		}();
 		return A2(
@@ -9253,7 +9253,7 @@ var $author$project$Main$viewBody = function (model) {
 				]),
 			_List_fromArray(
 				[
-					$rtfeldman$elm_css$Html$Styled$text('sentence'),
+					$rtfeldman$elm_css$Html$Styled$text(variant.a5),
 					A2(
 					$rtfeldman$elm_css$Html$Styled$ul,
 					_List_Nil,
@@ -9275,7 +9275,7 @@ var $author$project$Main$viewBody = function (model) {
 };
 var $author$project$Main$view = function (model) {
 	return {
-		bh: _List_fromArray(
+		bi: _List_fromArray(
 			[
 				A2($elm$core$Basics$composeR, $author$project$Main$viewBody, $rtfeldman$elm_css$Html$Styled$toUnstyled)(model)
 			]),
