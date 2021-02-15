@@ -10,13 +10,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-
-      - name: Setup YAML converter
-        run: |
-          npm install -g yaml2json
 
       - name: Setup Elm
         run: |
@@ -28,10 +21,13 @@ jobs:
       - name: Make index.html
         run: |
           elm make --optimize src/Main.elm
-      
+
       - name: Make data.json
         run: |
-          yaml2json ./data.yml
+          wget https://github.com/bronze1man/yaml2json/releases/download/v1.3/yaml2json_linux_amd64
+          chmod +x yaml2json_linux_amd64
+          ./yaml2json_linux_amd64 < data.yml > data.json
+          rm yaml2json_linux_amd64
 
       - name: Move files
         run: |
