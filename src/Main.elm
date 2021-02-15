@@ -34,36 +34,29 @@ type alias Model =
     }
 
 
+type alias Variant =
+    { sentence : String
+    , options : List String
+    , answer : String
+    }
+
+
 type alias Question =
     { id : Int
-    , sentence : String
-    , answerOptions : List String
-    , rightAnswer : String
+    , variants : List Variant
     , answer : Maybe String
+    , recommendation : String
     }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( { questions =
-            [ { id = 1
-              , sentence = "I ... not think about it."
-              , answerOptions = [ "can", "have to", "will", "expect" ]
-              , rightAnswer = "can"
-              , answer = Nothing
-              }
-            , { id = 2
-              , sentence = "You ... imagine what I have whent through."
-              , answerOptions = [ "may be", "can easily", "can hardly", "should try" ]
-              , rightAnswer = "can hardly"
-              , answer = Nothing
-              }
-            ]
+    ( { questions = []
       , currentQuestionId = 1
       }
     , Http.get
         { url = Url.Builder.absolute [ "data.json" ] []
-        , expect = Http.expectJson GotData (JD.field "questions" JD.string)
+        , expect = Http.expectJson GotData dataDecoder
         }
     )
 
@@ -75,7 +68,7 @@ init _ =
 type Msg
     = ChoseQuestion Int
     | ChoseAnswer String
-    | GotData (Result Http.Error String)
+    | GotData (Result Http.Error (List Question))
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -95,12 +88,44 @@ update msg model =
         ChoseQuestion id ->
             ( { model | currentQuestionId = id }, Cmd.none )
 
-        GotData _ ->
-            ( model, Cmd.none )
+        GotData result ->
+            case result of
+                Ok questions ->
+                    ( { questions = questions
+                      , currentQuestionId = 1
+                      }
+                    , Cmd.none
+                    )
+
+                Err _ ->
+                    ( model, Cmd.none )
 
 
 
 -- API
+
+
+dataDecoder =
+    JD.field "questions"
+        (JD.list
+            (JD.map4 Question
+                (JD.field "id" JD.int)
+                (JD.field "variants"
+                    (JD.list
+                        (JD.map3 Variant
+                            (JD.field "sentence" JD.string)
+                            (JD.field "options" (JD.list JD.string))
+                            (JD.field "answer" JD.string)
+                        )
+                    )
+                )
+                (JD.succeed Nothing)
+                (JD.field "recommendation" JD.string)
+            )
+        )
+
+
+
 -- VIEW
 
 
@@ -117,30 +142,38 @@ view model =
 
 
 viewBody model =
-    let
-        question =
-            case model.questions |> List.filter (\q -> q.id == model.currentQuestionId) |> List.head of
-                Just q ->
-                    q
+    case model.questions |> List.filter (\q -> q.id == model.currentQuestionId) |> List.head of
+        Just q ->
+            let
+                variant =
+                    case q.variants |> List.head of
+                        Just v ->
+                            v
 
-                Nothing ->
-                    Question 0 "oops..." [ "ok" ] "" Nothing
-    in
-    div
-        [ css
-            [ width (px 460)
-            , margin2 (px 20) auto
-            , fontFamily sansSerif
-            , fontSize (pt 18)
-            , color (rgb 80 80 80)
-            , padding (px 12)
-            , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
-            ]
-        ]
-        [ text question.sentence
-        , ul [] <| List.map (viewOption question.answer) question.answerOptions
-        , viewQuestions model.questions
-        ]
+                        Nothing ->
+                            { sentence = ""
+                            , options = []
+                            , answer = "ok"
+                            }
+            in
+            div
+                [ css
+                    [ width (px 460)
+                    , margin2 (px 20) auto
+                    , fontFamily sansSerif
+                    , fontSize (pt 18)
+                    , color (rgb 80 80 80)
+                    , padding (px 12)
+                    , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
+                    ]
+                ]
+                [ text "sentence"
+                , ul [] <| List.map (viewOption q.answer) (variant.answer :: variant.options)
+                , viewQuestions model.questions
+                ]
+
+        Nothing ->
+            div [] [ text "Question not found" ]
 
 
 viewQuestions questions =

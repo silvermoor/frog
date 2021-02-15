@@ -1,6 +1,8 @@
 ---
 questions:
-- variants:
+
+- id: 1
+  variants:
   - sentence: I ... not think about it.
     answer: can
     options:
@@ -14,7 +16,9 @@ questions:
     - will
     - expect
   recommendation: "text of recommendation"
-- variants:
+
+- id: 2
+  variants:
   - sentence: I ... not think about it.
     answer: can
     options:
