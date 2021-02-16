@@ -2,33 +2,45 @@
 questions:
 
 - id: 1
+  recommendation: text of recommendation
   variants:
+
   - sentence: I ... not think about it.
     answer: can
     options:
     - have to
     - will
     - expect
+
   - sentence: I ... not care about it.
     answer: can
     options:
     - have to
     - will
     - expect
-  recommendation: "text of recommendation"
+
 
 - id: 2
+  recommendation: text of recommendation
   variants:
+
   - sentence: I ... not think about it.
     answer: can
     options:
     - have to
     - will
     - expect
+
   - sentence: I ... not care about it.
     answer: can
     options:
     - have to
     - will
     - expect
-  recommendation: "text of recommendation"
+
+  - sentence: I ... not care about it.
+    answer: can
+    options:
+    - have to
+    - will
+    - expect
