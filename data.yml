@@ -116,7 +116,7 @@ questions:
     - is make
     - makes
 
- - sentence: The book "War and Peace" … by Tolstoy.
+  - sentence: The book "War and Peace" … by Tolstoy.
     answer: was written
     options:
     - was wrote 
