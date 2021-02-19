@@ -266,7 +266,7 @@ questions:
     - can not
     
     
- - id: 19
+- id: 19
   recommendation: text of recommendation
   variants:
 
