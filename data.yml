@@ -5,7 +5,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: The weather isn't … I expected, it's just perfect.
+  - sentence: The weather is not … I expected, it is just perfect.
     answer: as cold as
     options:
     - cold
@@ -18,11 +18,11 @@ questions:
   variants:
 
   - sentence: If they … there, I … very lonely.
-    answer: hadn't been, would have been
+    answer: had not been, would have been
     options:
-    - haven’t been, would have been
-    - hadn’t been, would be
-    - haven’t been, would be
+    - have not been, would have been
+    - had not been, would be
+    - have not been, would be
 
 
 - id: 3 
@@ -74,9 +74,9 @@ questions:
 
 - variants:
   - sentence: Jane loves cats, …?
-    answer: doesn't she
+    answer: does not she
     options:
-    - isn’t she
+    - is not she
     - she does 
     - she is
 
@@ -116,7 +116,7 @@ questions:
     - is make
     - makes
 
-  - sentence: The book "War and Peace" … by Tolstoy.
+  - sentence: The book War and Peace … by Tolstoy.
     answer: was written
     options:
     - was wrote 
@@ -128,14 +128,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I won't be at school next week, … I'm travelling to Italy.
+  - sentence: I will not be at school next week, … I am travelling to Italy.
     answer: as
     options:
     - but
     - due to
     - before
 
-  - sentence: I won't be in class tomorrow … I go to the doctor.
+  - sentence: I will not be in class tomorrow … I go to the doctor.
     answer: since
     options:
     - yet
@@ -166,18 +166,18 @@ questions:
     - would listen
 
   - sentence: I wish I … Ann about my plans.
-    answer: hadn't told
+    answer: had not told
     options:
-    - wasn't telling
-    - didn't tell
-    - wouldn't tell
+    - was not telling
+    - did not tell
+    - would not tell
 
 
 - id: 13
   recommendation: text of recommendation
   variants:
 
-  - sentence: I'd like to do some painting, … I'm quite good at.
+  - sentence: I would like to do some painting, … I am quite good at.
     answer: which
     options:
     - and
@@ -189,7 +189,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: It … for a long time so I couldn't go for a walk.
+  - sentence: It … for a long time so I could not go for a walk.
     answer: had been snowing
     options:
     - have been snowing
@@ -227,7 +227,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: We're keen on walking in the mountains … on a trip to Edinburgh.
+  - sentence: We are keen on walking in the mountains … on a trip to Edinburgh.
     answer: rather than going
     options:
     - than
@@ -261,7 +261,7 @@ questions:
   - sentence: You … see some marks from that accident.
     answer: can still
     options:
-    - can’t anymore
+    - ca not anymore
     - may still
     - can not
 
@@ -282,7 +282,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Many people say that they just don't have time for … about their health.
+  - sentence: Many people say that they just do not have time for … about their health.
     answer: thinking
     options:
     - care
@@ -294,7 +294,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Concerning your question about any special requirements of some students - I am glad that I'm able to tell you that there … this year.
+  - sentence: Concerning your question about any special requirements of some students - I am glad that I am able to tell you that there … this year.
     answer: are none
     options:
     - are no
@@ -366,7 +366,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: This art college is known for its very skilled students, and … it doesn't have its own gallery.
+  - sentence: This art college is known for its very skilled students, and … it does not have its own gallery.
     answer: yet
     options:
     - still
@@ -397,14 +397,14 @@ questions:
     - just more
     - just about more
 
-  - sentence: It will be … expensive than the bus but it's safer and quicker.
+  - sentence: It will be … expensive than the bus but it is safer and quicker.
     answer: a bit more
     options:
     - just more
     - quite
     - a little more
 
-  - sentence: Despite all the controversies between these two generations, the grandchildren shouldn't forget that their grandparents are … experienced.
+  - sentence: Despite all the controversies between these two generations, the grandchildren should not forget that their grandparents are … experienced.
     answer: much more
     options:
     - quiet more
@@ -423,7 +423,7 @@ questions:
     - the least
     - the tiniest
 
-  - sentence: I haven't … idea.
+  - sentence: I have not … idea.
     answer: the faintest
     options:
     - the smallest
@@ -471,8 +471,8 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Secondly, there … a division between rich and poor.ought not to be
-    answer: 
+  - sentence: Secondly, there … a division between rich and poor.
+    answer: ought not to be
     options:
     - must not be
     - ought not be
@@ -495,19 +495,19 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I wouldn't have been fired.
-    answer: hadn't been for
+  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I would not have been fired.
+    answer: had not been for
     options:
     - weren’t because
     - hadn’t been due to
     - weren’t because of
 
-  - sentence: They had become very good friends and their friendship could have gone a little further if it … Dan's character.
-    answer: hadn't been for
+  - sentence: They had become very good friends and their friendship could have gone a little further if it … his character.
+    answer: had not been for
     options:
-    - wasn’t because of
-    - hadn’t been due to
-    - wasn’t because
+    - was not because of
+    - had not been due to
+    - was not because
 
 
 - id: 38
@@ -545,8 +545,8 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Imagine my dismay when I realized I hadn't brought back the notebook from the pub. Surely I … it on my seat.
-    answer: couldn't have left
+  - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I … it on my seat.
+    answer: could not have left
     options:
     - wasn’t able to leave
     - couldn’t left
