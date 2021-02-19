@@ -35,3 +35,59 @@ questions:
     - did Jane left
     - left Jane
     - Jane leaved
+
+
+- id: 4 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Thank you for giving me … fantastic birthday present.
+    answer: such a
+    options:
+    - most
+    - such
+    - so 
+
+  - sentence: I was … nervous that when he talked to me, I shouted to answer.
+    answer: so
+    options:
+    - really
+    - such
+    - very
+
+
+- id: 5 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: You should come with your sister … you would rather be alone.
+    answer: even though 
+    options:
+    - but
+    - even
+    - though
+
+
+- id: 6
+  recommendation: text of recommendation
+  variants:
+
+- variants:
+  - sentence: Jane loves cats, …?
+    answer: does not she
+    options:
+    - is not she
+    - she does 
+    - she is
+
+
+- id: 7 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: He said that he … very fast.
+    answer: could swim
+    options:
+    - is swimming
+    - can swam 
+    - is able to swim
