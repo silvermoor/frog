@@ -430,7 +430,7 @@ questions:
     - something
     - same
 
-  - sentence: But as she doesn't live in a … family, Ola was never able to afford additional private lessons.
+  - sentence: But as she does not live in a … family, Sarah was never able to afford additional private lessons.
     answer: well-to-do
     options:
     - well to do
@@ -581,6 +581,6 @@ questions:
   - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I … it on my seat.
     answer: could not have left
     options:
-    - wasn’t able to leave
-    - couldn’t left
+    - was not able to leave
+    - could not left
     - would not leave
