@@ -1,46 +1,578 @@
 ---
 questions:
 
-- id: 1
+- id: 1 
   recommendation: text of recommendation
   variants:
 
-  - sentence: I ... not think about it.
-    answer: can
+  - sentence: The weather isn't … I expected, it's just perfect.
+    answer: as cold as
     options:
-    - have to
-    - will
-    - expect
-
-  - sentence: I ... not care about it.
-    answer: can
-    options:
-    - have to
-    - will
-    - expect
+    - cold
+    - good
+    - as good as
 
 
-- id: 2
+- id: 2 
   recommendation: text of recommendation
   variants:
 
-  - sentence: I ... not think about it.
-    answer: can
+  - sentence: If they … there, I … very lonely.
+    answer: hadn't been, would have been
     options:
-    - have to
-    - will
-    - expect
+    - haven’t been, would have been
+    - hadn’t been, would be
+    - haven’t been, would be
 
-  - sentence: I ... not care about it.
-    answer: can
-    options:
-    - have to
-    - will
-    - expect
 
-  - sentence: I ... not care about it.
-    answer: can
+- id: 3 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Do you know where … her keys?
+    answer: Jane left
     options:
-    - have to
+    - did Jane left
+    - left Jane
+    - Jane leaved
+
+
+- id: 4 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Thank you for giving me … fantastic birthday present.
+    answer: such a
+    options:
+    - most
+    - such
+    - so 
+
+  - sentence: I was … nervous that when he talked to me, I shouted to answer!
+    answer: so
+    options:
+    - really
+    - such
+    - very
+
+
+- id: 5 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: You should come with your sister … you’d rather be alone.
+    answer: even though 
+    options:
+    - but
+    - even
+    - though
+
+
+- id: 6
+  recommendation: text of recommendation
+  variants:
+
+- variants:
+  - sentence: Jane loves cats, …?
+    answer: doesn't she
+    options:
+    - isn’t she
+    - she does 
+    - she is
+
+
+- id: 7 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: He said that he … very fast.
+    answer: could swim
+    options:
+    - is swimming
+    - can swam 
+    - is able to swim
+
+
+- id: 8 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: When I got home, the film … .
+    answer: had already started
+    options:
+    - was starting
+    - have already started
+    - started
+
+
+- id: 9
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Pasta … with flour and water.
+    answer: is made
+    options:
+    - made
+    - is make
+    - makes
+
+ - sentence: The book "War and Peace" … by Tolstoy.
+    answer: was written
+    options:
+    - was wrote 
+    - written 
+    - has written
+
+
+- id: 10 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: I won't be at school next week, … I'm travelling to Italy.
+    answer: as
+    options:
+    - but
+    - due to
+    - before
+
+ - sentence: I won't be in class tomorrow … I go to the doctor.
+    answer: since
+    options:
+    - yet
+    - though
+    - and
+
+
+- id: 11
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: By November, I … living here for five years.
+    answer: will have been
+    options:
+    - will be
     - will
-    - expect
+    - will have
+
+- id: 12
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: If only I … to my father!
+    answer: had listened
+    options:
+    - have listened
+    - listened 
+    - would listen
+
+  - sentence: I wish I … Ann about my plans.
+    answer: hadn't told
+    options:
+    - wasn't telling
+    - didn't tell
+    - wouldn't tell
+
+
+- id: 13
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: I'd like to do some painting, … I'm quite good at.
+    answer: which
+    options:
+    - and
+    - whose
+    - because
+
+
+- id: 14
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: It … for a long time so I couldn't go for a walk.
+    answer: had been snowing
+    options:
+    - have been snowing
+    - were snowing
+    - snowed
+
+  - sentence: We … for ten minutes before it started to rain.
+    answer: had only been walking
+    options:
+    - had only walked
+    - have only been walking
+    - were only walking
+
+
+- id: 15
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: My granddad … us fun stories.
+    answer: used to tell
+    options:
+    - was telling
+    - got used to telling
+    - was used to tell
+
+  - sentence: I worked very hard. I … a lot of hours at work.
+    answer: would spend
+    options:
+    - get used to spend
+    - would like to spend
+    - was spending
+
+
+- id: 16
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: We're keen on walking in the mountains … on a trip to Edinburgh.
+    answer: rather than going
+    options:
+    - than
+    - than being
+    - more than
+
+
+- id: 17
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: I told him that our father … a brand new car.
+    answer: was about to buy
+    options:
+    - willing to buy
+    - is about to buy
+    - is about buying
+
+
+- id: 18
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: You … imagine what I have went through as a teacher.
+    answer: can hardly
+    options:
+    - is unable to
+    - might hardly
+    - may try
+
+  - sentence: You … see some marks from that accident.
+    answer: can still
+    options:
+    - can’t anymore
+    - may still
+    - can not
+
+
+- id: 19
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: People who read books … more knowledgeable.
+    answer: are likely to be
+    options:
+    - are consider
+    - are likely
+    - seemed to be
+
+
+- id: 20
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Many people say that they just don't have time for … about their health.
+    answer: thinking
+    options:
+    - care
+    - thoughts
+    - taking care
+
+
+- id: 21
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Concerning your question about any special requirements of some students - I am glad that I'm able to tell you that there … this year.
+    answer: are none
+    options:
+    - are no
+    - are not
+    - not
+
+
+- id: 22
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Meals are served, if … , three times a day, unless picnic lunches are needed.
+    answer: requested
+    options:
+    - request
+    - will request
+    - would request
+
+
+- id: 23
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Sure, some of the motorists changed to bicycles or to public transport - but … .
+    answer: far too few
+    options:
+    - far too little
+    - far too small
+    - far less
+
+
+- id: 24
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: But still both concerts were great as the bands really know how to … , but in two completely different ways.
+    answer: get people moving
+    options:
+    - get people move
+    - make people moving
+    - get people to move
+
+
+- id: 25
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: As a conclusion, I want to say that while what we wear … define who we are, it does play a big part in it.
+    answer: doesn’t necessarily
+    options:
+    - isn’t necessarily
+    - isn’t surely
+    - doesn’t surely
+
+
+- id: 26
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: We would suggest that our management … a closer look.
+    answer: takes
+    options:
+    - took
+    - has taken
+    - will take
+
+
+- id: 27
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: This art college is known for its very skilled students, and … it doesn't have its own gallery.
+    answer: yet
+    options:
+    - still
+    - although
+    - though
+
+
+- id: 28
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: There are plenty of taxis but they are very expensive, if … with London taxis.
+    answer: compared
+    options:
+    - compare
+    - would compare
+    - are compared
+
+
+- id: 29
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: My Spanish is … fluent than my English, because I lived in Spain longer than in England.
+    answer: slightly more 
+    options:
+    - quiet more
+    - just more
+    - just about more
+
+  - sentence: It will be … expensive than the bus but it's safer and quicker.
+    answer: a bit more
+    options:
+    - just more
+    - quite
+    - a little more
+
+  - sentence: Despite all the controversies between these two generations, the grandchildren shouldn't forget that their grandparents are … experienced.
+    answer: much more
+    options:
+    - quiet more
+    - just more
+    - a lot more
+
+
+- id: 30
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: I would describe myself as an … person.
+    answer: easy-going
+    options:
+    - easy going
+
+  - sentence: We suggest investing a certain amount of money in the … technical devices.
+    answer: above-mentioned
+    options:
+    - above mentioned
+
+  - sentence: But as she doesn't live in a … family, Ola was never able to afford additional private lessons.
+    answer: well-to-do
+    options:
+    - well to do
+
+  - sentence: If anyone has ever seen it, they would agree with me that it was THE most … road in the world.
+    answer: jaw-dropping
+    options:
+    - jaw dropping
+
+
+- id: 31
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: They act as consumers and never show … interest in learning and sharing opinions with the locals.
+    answer: the slightest
+    options:
+    - the smallest
+    - the least
+    - the tiniest
+
+  - sentence: I haven't … idea.
+    answer: the faintest
+    options:
+    - the smallest
+    - the tiniest
+    - the least
+
+
+- id: 32
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: … them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
+    answer: Were we to give
+    options:
+    - We would give
+    - Were we giving
+    - We would be giving
+
+
+- id: 33
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: It has raised … which I would like to comment upon here.
+    answer: many an issue
+    options:
+    - some an issue
+    - big an issue
+    - any an issue
+
+
+- id: 34
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: It was quite early in the morning and my plane … leave in about 40 minutes.
+    answer: was due to
+    options:
+    - was about to
+    - been due to
+    - was
+
+
+- id: 35
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Secondly, there … a division between rich and poor.ought not to be
+    answer: 
+    options:
+    - must not be
+    - ought not be
+    - can not be
+
+
+- id: 36
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: In order to attract people and … their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language.
+    answer: have them practice 
+    options:
+    - get them practice
+    - have them to practice
+    - get them practicing
+
+
+- id: 37
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I wouldn't have been fired.
+    answer: hadn't been for
+    options:
+    - weren’t because
+    - hadn’t been due to
+    - weren’t because of
+
+  - sentence: They had become very good friends and their friendship could have gone a little further if it … Dan's character.
+    answer: hadn't been for
+    options:
+    - wasn’t because of
+    - hadn’t been due to
+    - wasn’t because
+
+
+- id: 38
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: … of children who hate reading as they believe that it is pointless, but they are not able to judge from a young age.
+    answer: Many are the examples
+    options:
+    - The many are examples
+    - The examples are many
+    - There are many
+
+
+- id: 39
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: … from the mistakes of the past, we would have given up fighting each other a long time ago.
+    answer: Had we learnt
+    options:
+    - Did we learn
+    - Have we learnt
+    - If we learn
+
+  - sentence: … an option I would have chosen that instead of my car.
+    answer: Had public transportation been
+    options:
+    - Did public transportation been
+    - Have public transportation been
+    - If public transportation been
+
+
+- id: 40
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Imagine my dismay when I realized I hadn't brought back the notebook from the pub. Surely I … it on my seat.
+    answer: couldn't have left
+    options:
+    - wasn’t able to leave
+    - couldn’t left
+    - would not leave
