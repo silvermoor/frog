@@ -412,31 +412,6 @@ questions:
     - a lot more
 
 
-- id: 30
-  recommendation: text of recommendation
-  variants:
-
-  - sentence: I would describe myself as an … person.
-    answer: easy-going
-    options:
-    - easy going
-
-  - sentence: We suggest investing a certain amount of money in the … technical devices.
-    answer: above-mentioned
-    options:
-    - above mentioned
-
-  - sentence: But as she doesn't live in a … family, Ola was never able to afford additional private lessons.
-    answer: well-to-do
-    options:
-    - well to do
-
-  - sentence: If anyone has ever seen it, they would agree with me that it was THE most … road in the world.
-    answer: jaw-dropping
-    options:
-    - jaw dropping
-
-
 - id: 31
   recommendation: text of recommendation
   variants:
