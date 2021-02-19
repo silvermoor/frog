@@ -11,3 +11,27 @@ questions:
     - cold
     - good
     - as good as
+
+
+- id: 2 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: If they … there, I … very lonely.
+    answer: had not been, would have been
+    options:
+    - have not been, would have been
+    - had not been, would be
+    - have not been, would be
+
+
+- id: 3 
+  recommendation: text of recommendation
+  variants:
+
+  - sentence: Do you know where … her keys?
+    answer: Jane left
+    options:
+    - did Jane left
+    - left Jane
+    - Jane leaved
