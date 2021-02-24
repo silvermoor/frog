@@ -420,29 +420,21 @@ questions:
     answer: easy-going
     options:
     - easy going
-    - something
-    - same
 
   - sentence: We suggest investing a certain amount of money in the … technical devices.
     answer: above-mentioned
     options:
     - above mentioned
-    - something
-    - same
 
   - sentence: But as she does not live in a … family, Sarah was never able to afford additional private lessons.
     answer: well-to-do
     options:
     - well to do
-    - something
-    - same
 
   - sentence: If anyone has ever seen it, they would agree with me that it was THE most … road in the world.
     answer: jaw-dropping
     options:
     - jaw dropping
-    - something
-    - same
 
 
 - id: 31
