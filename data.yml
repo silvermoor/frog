@@ -47,6 +47,13 @@ questions:
     - most
     - such
     - so 
+    
+  - sentence: Also, we both liked to read and that was why we were ... good friends.
+    answer: such 
+    options:
+    - most
+    - such a
+    - so 
 
 
 - id: 5 
