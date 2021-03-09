@@ -2,7 +2,7 @@
 questions:
 
 - id: 1 
-  recommendation: as (так) + прилагательное/наречие + as (как): Погода не ТАК прохладна, КАК я ожидал, она просто идеальна.
+  recommendation: as так + прилагательное или наречие + as как - Погода не ТАК прохладна, КАК я ожидал, она просто идеальна.
   variants:
 
   - sentence: The weather is not … I expected, it is just perfect.
