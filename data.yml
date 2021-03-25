@@ -5,7 +5,7 @@ questions:
   recommendation: as так + прилагательное или наречие + as как - Погода не ТАК прохладна, КАК я ожидал, она просто идеальна. # Как поставить двоеточие? Или нельзя..? Выдаёт ошибку.
   variants:
 
-  - sentence: "The weather is not … I expected, it's just perfect." # Можно так? А то знаки препинания мешают.
+  - sentence: "The weather is \ not … I \ expected, it's just perfect." # Можно так? А то знаки препинания мешают.
     answer: as cold as
     options:
     - cold
