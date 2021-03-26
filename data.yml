@@ -18,11 +18,11 @@ questions:
   variants:
 
   - sentence: If they … there, I … very lonely.
-    answer: had not been, would have been
+    answer: hadn`t been, would have been
     options:
-    - have not been, would have been
-    - had not been, will be
-    - have not been, will be
+    - haven`t been, would have been
+    - hadn`t been, will be
+    - haven`t been, will be
 
 
 - id: 3 
@@ -73,9 +73,9 @@ questions:
   variants:
 
   - sentence: Jane loves cats, …?
-    answer: does not she
+    answer: doesn`t she
     options:
-    - is not she
+    - isn`t she
     - she does 
     - she is
 
@@ -134,14 +134,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I will not be at school next week, … I am travelling to Italy.
+  - sentence: I won`t be at school next week, … I`m travelling to Italy.
     answer: as
     options:
     - but
     - due to
     - before
 
-  - sentence: I will not be in class tomorrow … I go to the doctor.
+  - sentence: I won`t be in class tomorrow … I go to the doctor.
     answer: since
     options:
     - yet
@@ -173,18 +173,18 @@ questions:
     - would listen
 
   - sentence: I wish I … Ann about my plans.
-    answer: had not told
+    answer: hadn`t told
     options:
-    - was not telling
-    - did not tell
-    - would not tell
+    - wasn`t telling
+    - didn`t tell
+    - wouldn`t tell
 
 
 - id: 13
   recommendation: text of recommendation
   variants:
 
-  - sentence: I would like to do some painting, … I am quite good at.
+  - sentence: I would like to do some painting, … I`m quite good at.
     answer: which
     options:
     - and
@@ -268,9 +268,9 @@ questions:
   - sentence: You … see some marks from that accident.
     answer: can still
     options:
-    - can not anymore
+    - can`t anymore
     - may still
-    - can not
+    - can`t
     
     
 - id: 19
@@ -289,7 +289,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Many people say that they just do not have time for … about their health.
+  - sentence: Many people say that they just don`t have time for … about their health.
     answer: thinking
     options:
     - care
@@ -350,11 +350,11 @@ questions:
   variants:
 
   - sentence: As a conclusion, I want to say that while what we wear … define who we are, it does play a big part in it.
-    answer: doesn’t necessarily
+    answer: doesn`t necessarily
     options:
-    - isn’t necessarily
-    - isn’t surely
-    - doesn’t surely
+    - isn`t necessarily
+    - isn`t surely
+    - doesn`t surely
 
 
 - id: 26
@@ -373,7 +373,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: This art college is known for its very skilled students, and … it does not have its own gallery.
+  - sentence: This art college is known for its very skilled students, and … it doesn`t have its own gallery.
     answer: yet
     options:
     - still
@@ -404,14 +404,14 @@ questions:
     - just more
     - just about more
 
-  - sentence: It will be … expensive than the bus but it is safer and quicker.
+  - sentence: It will be … expensive than the bus but it`s safer and quicker.
     answer: a bit more
     options:
     - just more
     - quite
     - a little more
 
-  - sentence: Despite all the controversies between these two generations, the grandchildren should not forget that their grandparents are … experienced.
+  - sentence: Despite all the controversies between these two generations, the grandchildren shouldn`t forget that their grandparents are … experienced.
     answer: much more
     options:
     - quiet more
@@ -433,7 +433,7 @@ questions:
     options:
     - above mentioned
 
-  - sentence: But as she does not live in a … family, Sarah was never able to afford additional private lessons.
+  - sentence: But as she doesn`t live in a … family, Sarah was never able to afford additional private lessons.
     answer: well-to-do
     options:
     - well to do
@@ -479,7 +479,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: It has raised … which I would like to comment upon here.
+  - sentence: It has raised … which I`d like to comment upon here.
     answer: many an issue
     options:
     - some an issue
@@ -506,9 +506,9 @@ questions:
   - sentence: Secondly, there … a division between rich and poor.
     answer: ought not to be
     options:
-    - must not be
+    - mustn`t be
     - ought not be
-    - can not be
+    - can`t be
 
 
 - id: 36
@@ -527,19 +527,19 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I would not have been fired.
-    answer: had not been for
+  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I wouldn`t have been fired.
+    answer: hadn`t been for
     options:
-    - weren’t because
-    - hadn’t been due to
-    - weren’t because of
+    - weren`t because
+    - hadn`t been due to
+    - weren`t because of
 
   - sentence: They had become very good friends and their friendship could have gone a little further if it … his character.
-    answer: had not been for
+    answer: hadn`t been for
     options:
-    - was not because of
-    - had not been due to
-    - was not because
+    - wasn`t because of
+    - hadn`t been due to
+    - wasn`t because
 
 
 - id: 38
@@ -578,8 +578,8 @@ questions:
   variants:
 
   - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I … it on my seat.
-    answer: could not have left
+    answer: couldn`t have left
     options:
-    - was not able to leave
-    - could not left
-    - would not leave
+    - wasn`t able to leave
+    - couldn`t left
+    - wouldn`t leave
