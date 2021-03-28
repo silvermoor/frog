@@ -7,6 +7,10 @@ import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
 import Http
 import Json.Decode as JD
+import List.Extra exposing (getAt, removeAt)
+import Random
+import Task
+import Time
 import Url
 import Url.Builder
 
@@ -15,11 +19,12 @@ import Url.Builder
 -- MAIN
 
 
+main : Program () Model Msg
 main =
     Browser.document
         { init = init
         , update = update
-        , view = view
+        , view = view >> toUnstyledDocument
         , subscriptions = \_ -> Sub.none
         }
 
@@ -31,6 +36,7 @@ main =
 type alias Model =
     { questions : List Question
     , currentQuestionId : Int
+    , seed : Int
     }
 
 
@@ -53,11 +59,15 @@ init : () -> ( Model, Cmd Msg )
 init _ =
     ( { questions = []
       , currentQuestionId = 1
+      , seed = 0
       }
-    , Http.get
-        { url = Url.Builder.absolute [ "data.json" ] []
-        , expect = Http.expectJson GotData dataDecoder
-        }
+    , Cmd.batch
+        [ Http.get
+            { url = Url.Builder.absolute [ "data.json" ] []
+            , expect = Http.expectJson GotData dataDecoder
+            }
+        , Task.perform SetSeed Time.now
+        ]
     )
 
 
@@ -69,6 +79,7 @@ type Msg
     = ChoseQuestion Int
     | ChoseAnswer String
     | GotData (Result Http.Error (List Question))
+    | SetSeed Time.Posix
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -91,8 +102,9 @@ update msg model =
         GotData result ->
             case result of
                 Ok questions ->
-                    ( { questions = questions
-                      , currentQuestionId = 1
+                    ( { model
+                        | questions = questions
+                        , currentQuestionId = 1
                       }
                     , Cmd.none
                     )
@@ -100,11 +112,17 @@ update msg model =
                 Err _ ->
                     ( model, Cmd.none )
 
+        SetSeed time ->
+            ( { model | seed = Time.posixToMillis time }
+            , Cmd.none
+            )
+
 
 
 -- API
 
 
+dataDecoder : JD.Decoder (List Question)
 dataDecoder =
     JD.field "questions"
         (JD.list
@@ -135,12 +153,21 @@ type alias Document msg =
     }
 
 
-view model =
-    { title = "Frog"
-    , body = [ (viewBody >> toUnstyled) model ]
+toUnstyledDocument : Document msg -> Browser.Document msg
+toUnstyledDocument doc =
+    { title = doc.title
+    , body = List.map toUnstyled doc.body
     }
 
 
+view : Model -> Document Msg
+view model =
+    { title = "Frog"
+    , body = [ viewBody model ]
+    }
+
+
+viewBody : Model -> Html Msg
 viewBody model =
     case model.questions |> List.filter (\q -> q.id == model.currentQuestionId) |> List.head of
         Just q ->
@@ -155,6 +182,9 @@ viewBody model =
                             , options = []
                             , answer = "ok"
                             }
+
+                options =
+                    shuffleList (Random.initialSeed <| model.seed + q.id) (variant.answer :: variant.options)
             in
             div
                 [ css
@@ -168,14 +198,16 @@ viewBody model =
                     ]
                 ]
                 [ text variant.sentence
-                , ul [] <| List.map (viewOption q.answer) (variant.answer :: variant.options)
+                , ul [] <| List.map (viewOption q.answer) options
                 , viewQuestions model.questions
+                , div [] [ text (String.fromInt model.seed) ]
                 ]
 
         Nothing ->
             div [] [ text "Question not found" ]
 
 
+viewQuestions : List Question -> Html Msg
 viewQuestions questions =
     let
         qButton q =
@@ -199,6 +231,7 @@ viewQuestions questions =
     div [] <| List.map qButton questions
 
 
+viewOption : Maybe String -> String -> Html Msg
 viewOption answer option =
     li
         [ onClick (ChoseAnswer option)
@@ -217,3 +250,35 @@ viewOption answer option =
         [ text " "
         , text option
         ]
+
+
+shuffleList : Random.Seed -> List a -> List a
+shuffleList seed list =
+    shuffleListHelper seed list []
+
+
+shuffleListHelper : Random.Seed -> List a -> List a -> List a
+shuffleListHelper seed source result =
+    if List.isEmpty source then
+        result
+
+    else
+        let
+            indexGenerator =
+                Random.int 0 (List.length source - 1)
+
+            ( index, nextSeed ) =
+                Random.step indexGenerator seed
+
+            valAtIndex =
+                getAt index source
+
+            sourceWithoutIndex =
+                removeAt index source
+        in
+        case valAtIndex of
+            Just val ->
+                shuffleListHelper nextSeed sourceWithoutIndex (val :: result)
+
+            Nothing ->
+                result
