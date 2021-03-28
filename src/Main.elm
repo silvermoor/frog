@@ -173,7 +173,7 @@ viewBody model =
         Just q ->
             let
                 variant =
-                    case q.variants |> List.head of
+                    case shuffleList (Random.initialSeed <| model.seed + q.id) q.variants |> List.head of
                         Just v ->
                             v
 
