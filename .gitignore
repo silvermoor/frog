@@ -5,3 +5,9 @@ repl-temp-*
 # vim swp
 *.swp
 
+# rendered data.yml
+/data.json
+
+# rendered app
+/index.html
+
