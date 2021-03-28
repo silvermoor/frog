@@ -1,5 +1,5 @@
 * DONE shuffle options
 * DONE shuffle question variants
-* TODO mark answerd questions
+* DONE mark answerd questions
 * TODO result view
 * TODO interpolate sentence with chosen option

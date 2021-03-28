@@ -199,7 +199,7 @@ viewBody model =
                 ]
                 [ text variant.sentence
                 , ul [] <| List.map (viewOption q.answer) options
-                , viewQuestions model.questions
+                , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
                 ]
 
@@ -207,28 +207,41 @@ viewBody model =
             div [] [ text "Question not found" ]
 
 
-viewQuestions : List Question -> Html Msg
-viewQuestions questions =
+viewQuestions : Model -> Html Msg
+viewQuestions model =
     let
         qButton q =
             span
                 [ onClick (ChoseQuestion q.id)
                 , css
-                    [ padding (px 12)
-                    , margin (px 12)
-                    , borderRadius (px 32)
+                    [ padding (px 4)
+                    , margin (px 5)
+                    , borderRadius (px 18)
                     , display inlineBlock
-                    , width (px 32)
-                    , height (px 32)
+                    , width (px 27)
+                    , height (px 18)
                     , textAlign center
                     , cursor pointer
-                    , backgroundColor (hex "aaaaff")
+                    , backgroundColor
+                        (hex <|
+                            if q.id == model.currentQuestionId then
+                                "77cc77"
+
+                            else
+                                case q.answer of
+                                    Just _ ->
+                                        "aaaaff"
+
+                                    Nothing ->
+                                        "7777ff"
+                        )
+                    , fontSize (px 15)
                     , color (hex "fff")
                     ]
                 ]
-                [ text "?" ]
+                [ text <| String.fromInt q.id ]
     in
-    div [] <| List.map qButton questions
+    div [] <| List.map qButton model.questions
 
 
 viewOption : Maybe String -> String -> Html Msg
