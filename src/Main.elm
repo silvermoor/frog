@@ -185,6 +185,14 @@ viewBody model =
 
                 options =
                     shuffleList (Random.initialSeed <| model.seed + q.id) (variant.answer :: variant.options)
+
+                answerText =
+                    case q.answer of
+                        Just answer ->
+                            answer
+
+                        Nothing ->
+                            "…"
             in
             div
                 [ css
@@ -197,7 +205,7 @@ viewBody model =
                     , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
                     ]
                 ]
-                [ text variant.sentence
+                [ String.split "…" variant.sentence |> String.join answerText |> text
                 , ul [] <| List.map (viewOption q.answer) options
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
