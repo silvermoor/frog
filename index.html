@@ -2718,7 +2718,7 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		H: func(record.H),
+		I: func(record.I),
 		ba: record.ba,
 		a6: record.a6
 	}
@@ -2988,7 +2988,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.H;
+		var message = !tag ? value : tag < 3 ? value.a : value.I;
 		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.ba;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
@@ -5443,11 +5443,11 @@ var $elm$url$Url$Builder$absolute = F2(
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $author$project$Main$Question = F4(
 	function (id, variants, answer, recommendation) {
-		return {M: answer, F: id, cs: recommendation, b_: variants};
+		return {A: answer, G: id, cs: recommendation, b_: variants};
 	});
 var $author$project$Main$Variant = F3(
 	function (sentence, options, answer) {
-		return {M: answer, a4: options, a7: sentence};
+		return {A: answer, a4: options, a7: sentence};
 	});
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$int = _Json_decodeInt;
@@ -8521,10 +8521,10 @@ var $author$project$Main$update = F2(
 			case 1:
 				var answer = msg.a;
 				var updateQuestion = function (q) {
-					return _Utils_eq(q.F, model.N) ? _Utils_update(
+					return _Utils_eq(q.G, model.N) ? _Utils_update(
 						q,
 						{
-							M: $elm$core$Maybe$Just(answer)
+							A: $elm$core$Maybe$Just(answer)
 						}) : q;
 				};
 				return _Utils_Tuple2(
@@ -8565,7 +8565,7 @@ var $author$project$Main$update = F2(
 		}
 	});
 var $rtfeldman$elm_css$Css$Structure$Compatible = 0;
-var $rtfeldman$elm_css$Css$auto = {b4: 0, a: 0, ac: 0, aO: 0, cj: 0, ag: 0, G: 0, x: 0, aj: 0, u: 0, aW: 0, ap: 0, q: 0, z: 'auto'};
+var $rtfeldman$elm_css$Css$auto = {b4: 0, a: 0, ac: 0, aO: 0, cj: 0, ag: 0, H: 0, x: 0, aj: 0, u: 0, aW: 0, ap: 0, q: 0, z: 'auto'};
 var $rtfeldman$elm_css$Css$Preprocess$AppendProperty = function (a) {
 	return {$: 0, a: a};
 };
@@ -9069,13 +9069,13 @@ var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 			l: 0,
 			ay: 0,
 			ag: 0,
-			G: 0,
+			H: 0,
 			ah: 0,
 			ai: 0,
 			Q: 0,
 			R: 0,
 			x: 0,
-			I: numericValue,
+			J: numericValue,
 			ao: 0,
 			aq: unitLabel,
 			aH: units,
@@ -9395,7 +9395,7 @@ var $author$project$Main$viewQuestions = function (model) {
 			_List_fromArray(
 				[
 					$rtfeldman$elm_css$Html$Styled$Events$onClick(
-					$author$project$Main$ChoseQuestion(q.F)),
+					$author$project$Main$ChoseQuestion(q.G)),
 					$rtfeldman$elm_css$Html$Styled$Attributes$css(
 					_List_fromArray(
 						[
@@ -9415,10 +9415,10 @@ var $author$project$Main$viewQuestions = function (model) {
 							$rtfeldman$elm_css$Css$backgroundColor(
 							$rtfeldman$elm_css$Css$hex(
 								function () {
-									if (_Utils_eq(q.F, model.N)) {
+									if (_Utils_eq(q.G, model.N)) {
 										return '77cc77';
 									} else {
-										var _v0 = q.M;
+										var _v0 = q.A;
 										if (!_v0.$) {
 											return 'aaaaff';
 										} else {
@@ -9435,7 +9435,7 @@ var $author$project$Main$viewQuestions = function (model) {
 			_List_fromArray(
 				[
 					$rtfeldman$elm_css$Html$Styled$text(
-					$elm$core$String$fromInt(q.F))
+					$elm$core$String$fromInt(q.G))
 				]));
 	};
 	return A2(
@@ -9448,28 +9448,37 @@ var $author$project$Main$viewBody = function (model) {
 		A2(
 			$elm$core$List$filter,
 			function (q) {
-				return _Utils_eq(q.F, model.N);
+				return _Utils_eq(q.G, model.N);
 			},
 			model.T));
 	if (!_v0.$) {
 		var q = _v0.a;
 		var variant = function () {
-			var _v1 = $elm$core$List$head(
+			var _v2 = $elm$core$List$head(
 				A2(
 					$author$project$Main$shuffleList,
-					$elm$random$Random$initialSeed(model.ak + q.F),
+					$elm$random$Random$initialSeed(model.ak + q.G),
 					q.b_));
-			if (!_v1.$) {
-				var v = _v1.a;
+			if (!_v2.$) {
+				var v = _v2.a;
 				return v;
 			} else {
-				return {M: 'ok', a4: _List_Nil, a7: ''};
+				return {A: 'ok', a4: _List_Nil, a7: ''};
 			}
 		}();
 		var options = A2(
 			$author$project$Main$shuffleList,
-			$elm$random$Random$initialSeed(model.ak + q.F),
-			A2($elm$core$List$cons, variant.M, variant.a4));
+			$elm$random$Random$initialSeed(model.ak + q.G),
+			A2($elm$core$List$cons, variant.A, variant.a4));
+		var answerText = function () {
+			var _v1 = q.A;
+			if (!_v1.$) {
+				var answer = _v1.a;
+				return answer;
+			} else {
+				return '…';
+			}
+		}();
 		return A2(
 			$rtfeldman$elm_css$Html$Styled$div,
 			_List_fromArray(
@@ -9502,13 +9511,17 @@ var $author$project$Main$viewBody = function (model) {
 				]),
 			_List_fromArray(
 				[
-					$rtfeldman$elm_css$Html$Styled$text(variant.a7),
+					$rtfeldman$elm_css$Html$Styled$text(
+					A2(
+						$elm$core$String$join,
+						answerText,
+						A2($elm$core$String$split, '…', variant.a7))),
 					A2(
 					$rtfeldman$elm_css$Html$Styled$ul,
 					_List_Nil,
 					A2(
 						$elm$core$List$map,
-						$author$project$Main$viewOption(q.M),
+						$author$project$Main$viewOption(q.A),
 						options)),
 					$author$project$Main$viewQuestions(model),
 					A2(
