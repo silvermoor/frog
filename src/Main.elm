@@ -205,7 +205,7 @@ viewBody model =
                     , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
                     ]
                 ]
-                [ String.split "…" variant.sentence |> String.join answerText |> text
+                [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text
                 , ul [] <| List.map (viewOption q.answer) options
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]

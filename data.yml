@@ -5,7 +5,7 @@ questions:
   recommendation: as (так) + прилагательное или наречие + as (как) - Погода не ТАК прохладна, КАК я ожидал, она просто идеальна. # Как поставить двоеточие? Или нельзя..? Выдаёт ошибку.
   variants:
 
-  - sentence: "The weather is not … I expected, it`s just perfect." # Можно так? А то знаки препинания мешают. 
+  - sentence: "The weather is not {{answer}} I expected, it`s just perfect." # Можно так? А то знаки препинания мешают.
     answer: as cold as
     options:
     - cold
@@ -17,7 +17,7 @@ questions:
   recommendation: text of recommendation # Как строку разбить на несколько на странице? \n?
   variants:
 
-  - sentence: If they … there, I … very lonely.
+  - sentence: If they {{answer}} there, I {{answer}} very lonely.
     answer: hadn`t been, would have been
     options:
     - haven`t been, would have been
@@ -29,7 +29,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Do you know where … her keys?
+  - sentence: Do you know where {{answer}} her keys?
     answer: Jane left
     options:
     - did Jane left
@@ -41,14 +41,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Thank you for giving me … fantastic birthday present.
+  - sentence: Thank you for giving me {{answer}} fantastic birthday present.
     answer: such a
     options:
     - most
     - such
     - so 
     
-  - sentence: Also, we both liked to read and that was why we were ... good friends.
+  - sentence: Also, we both liked to read and that was why we were {{answer}} good friends.
     answer: such 
     options:
     - most
@@ -60,7 +60,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: You should come with your sister … you would rather be alone.
+  - sentence: You should come with your sister {{answer}} you would rather be alone.
     answer: even though 
     options:
     - but
@@ -72,7 +72,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Jane loves cats, …?
+  - sentence: Jane loves cats, {{answer}}?
     answer: doesn`t she
     options:
     - isn`t she
@@ -84,14 +84,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: He said that he … very fast.
+  - sentence: He said that he {{answer}} very fast.
     answer: could swim
     options:
     - is swimming
     - can swam 
     - is able to swim
 
-  - sentence: I was … nervous that when he talked to me, I shouted to answer.
+  - sentence: I was {{answer}} nervous that when he talked to me, I shouted to answer.
     answer: so
     options:
     - really
@@ -103,7 +103,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: When I got home, the film … .
+  - sentence: When I got home, the film {{answer}} .
     answer: had already started
     options:
     - was starting
@@ -115,14 +115,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Pasta … with flour and water.
+  - sentence: Pasta {{answer}} with flour and water.
     answer: is made
     options:
     - made
     - is make
     - makes
 
-  - sentence: The book War and Peace … by Tolstoy.
+  - sentence: The book War and Peace {{answer}} by Tolstoy.
     answer: was written
     options:
     - was wrote 
@@ -134,14 +134,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I won`t be at school next week, … I`m travelling to Italy.
+  - sentence: I won`t be at school next week, {{answer}} I`m travelling to Italy.
     answer: as
     options:
     - but
     - due to
     - before
 
-  - sentence: I won`t be in class tomorrow … I go to the doctor.
+  - sentence: I won`t be in class tomorrow {{answer}} I go to the doctor.
     answer: since
     options:
     - yet
@@ -153,7 +153,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: By November, I … living here for five years.
+  - sentence: By November, I {{answer}} living here for five years.
     answer: will have been
     options:
     - will be
@@ -165,14 +165,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: If only I … to my father!
+  - sentence: If only I {{answer}} to my father!
     answer: had listened
     options:
     - have listened
     - listened 
     - would listen
 
-  - sentence: I wish I … Ann about my plans.
+  - sentence: I wish I {{answer}} Ann about my plans.
     answer: hadn`t told
     options:
     - wasn`t telling
@@ -184,7 +184,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I would like to do some painting, … I`m quite good at.
+  - sentence: I would like to do some painting, {{answer}} I`m quite good at.
     answer: which
     options:
     - and
@@ -196,14 +196,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: It … for a long time so I could not go for a walk.
+  - sentence: It {{answer}} for a long time so I could not go for a walk.
     answer: had been snowing
     options:
     - have been snowing
     - were snowing
     - snowed
 
-  - sentence: We … for ten minutes before it started to rain.
+  - sentence: We {{answer}} for ten minutes before it started to rain.
     answer: had only been walking
     options:
     - had only walked
@@ -215,14 +215,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: My granddad … us fun stories.
+  - sentence: My granddad {{answer}} us fun stories.
     answer: used to tell
     options:
     - was telling
     - got used to telling
     - was used to tell
 
-  - sentence: I worked very hard. I … a lot of hours at work.
+  - sentence: I worked very hard. I {{answer}} a lot of hours at work.
     answer: would spend
     options:
     - get used to spend
@@ -234,7 +234,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: We are keen on walking in the mountains … on a trip to Edinburgh.
+  - sentence: We are keen on walking in the mountains {{answer}} on a trip to Edinburgh.
     answer: rather than going
     options:
     - than
@@ -246,7 +246,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I told him that our father … a brand new car.
+  - sentence: I told him that our father {{answer}} a brand new car.
     answer: was about to buy
     options:
     - willing to buy
@@ -258,14 +258,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: You … imagine what I have went through as a teacher.
+  - sentence: You {{answer}} imagine what I have went through as a teacher.
     answer: can hardly
     options:
     - is unable to
     - might hardly
     - may try
 
-  - sentence: You … see some marks from that accident.
+  - sentence: You {{answer}} see some marks from that accident.
     answer: can still
     options:
     - can`t anymore
@@ -277,7 +277,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: People who read books … more knowledgeable.
+  - sentence: People who read books {{answer}} more knowledgeable.
     answer: are likely to be
     options:
     - are consider
@@ -289,7 +289,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Many people say that they just don`t have time for … about their health.
+  - sentence: Many people say that they just don`t have time for {{answer}} about their health.
     answer: thinking
     options:
     - care
@@ -301,7 +301,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Concerning your question about any special requirements of some students - I am glad that I am able to tell you that there … this year.
+  - sentence: Concerning your question about any special requirements of some students - I am glad that I am able to tell you that there {{answer}} this year.
     answer: are none
     options:
     - are no
@@ -313,7 +313,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Meals are served, if … , three times a day, unless picnic lunches are needed.
+  - sentence: Meals are served, if {{answer}} , three times a day, unless picnic lunches are needed.
     answer: requested
     options:
     - request
@@ -325,7 +325,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Sure, some of the motorists changed to bicycles or to public transport - but … .
+  - sentence: Sure, some of the motorists changed to bicycles or to public transport - but {{answer}} .
     answer: far too few
     options:
     - far too little
@@ -337,7 +337,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: But still both concerts were great as the bands really know how to … , but in two completely different ways.
+  - sentence: But still both concerts were great as the bands really know how to {{answer}} , but in two completely different ways.
     answer: get people moving
     options:
     - get people move
@@ -349,7 +349,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: As a conclusion, I want to say that while what we wear … define who we are, it does play a big part in it.
+  - sentence: As a conclusion, I want to say that while what we wear {{answer}} define who we are, it does play a big part in it.
     answer: doesn`t necessarily
     options:
     - isn`t necessarily
@@ -361,7 +361,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: We would suggest that our management … a closer look.
+  - sentence: We would suggest that our management {{answer}} a closer look.
     answer: takes
     options:
     - took
@@ -373,7 +373,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: This art college is known for its very skilled students, and … it doesn`t have its own gallery.
+  - sentence: This art college is known for its very skilled students, and {{answer}} it doesn`t have its own gallery.
     answer: yet
     options:
     - still
@@ -385,7 +385,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: There are plenty of taxis but they are very expensive, if … with London taxis.
+  - sentence: There are plenty of taxis but they are very expensive, if {{answer}} with London taxis.
     answer: compared
     options:
     - compare
@@ -397,21 +397,21 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: My Spanish is … fluent than my English, because I lived in Spain longer than in England.
+  - sentence: My Spanish is {{answer}} fluent than my English, because I lived in Spain longer than in England.
     answer: slightly more 
     options:
     - quiet more
     - just more
     - just about more
 
-  - sentence: It will be … expensive than the bus but it`s safer and quicker.
+  - sentence: It will be {{answer}} expensive than the bus but it`s safer and quicker.
     answer: a bit more
     options:
     - just more
     - quite
     - a little more
 
-  - sentence: Despite all the controversies between these two generations, the grandchildren shouldn`t forget that their grandparents are … experienced.
+  - sentence: Despite all the controversies between these two generations, the grandchildren shouldn`t forget that their grandparents are {{answer}} experienced.
     answer: much more
     options:
     - quiet more
@@ -423,22 +423,22 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: I would describe myself as an … person.
+  - sentence: I would describe myself as an {{answer}} person.
     answer: easy-going
     options:
     - easy going
 
-  - sentence: We suggest investing a certain amount of money in the … technical devices.
+  - sentence: We suggest investing a certain amount of money in the {{answer}} technical devices.
     answer: above-mentioned
     options:
     - above mentioned
 
-  - sentence: But as she doesn`t live in a … family, Sarah was never able to afford additional private lessons.
+  - sentence: But as she doesn`t live in a {{answer}} family, Sarah was never able to afford additional private lessons.
     answer: well-to-do
     options:
     - well to do
 
-  - sentence: If anyone has ever seen it, they would agree with me that it was THE most … road in the world.
+  - sentence: If anyone has ever seen it, they would agree with me that it was THE most {{answer}} road in the world.
     answer: jaw-dropping
     options:
     - jaw dropping
@@ -448,14 +448,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: They act as consumers and never show … interest in learning and sharing opinions with the locals.
+  - sentence: They act as consumers and never show {{answer}} interest in learning and sharing opinions with the locals.
     answer: the slightest
     options:
     - the smallest
     - the least
     - the tiniest
 
-  - sentence: I have not … idea.
+  - sentence: I have not {{answer}} idea.
     answer: the faintest
     options:
     - the smallest
@@ -467,7 +467,8 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: … them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
+  - sentence: |
+      {{answer}} them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
     answer: Were we to give
     options:
     - We would give
@@ -479,7 +480,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: It has raised … which I`d like to comment upon here.
+  - sentence: It has raised {{answer}} which I`d like to comment upon here.
     answer: many an issue
     options:
     - some an issue
@@ -491,7 +492,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: It was quite early in the morning and my plane … leave in about 40 minutes.
+  - sentence: It was quite early in the morning and my plane {{answer}} leave in about 40 minutes.
     answer: was due to
     options:
     - was about to
@@ -503,7 +504,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Secondly, there … a division between rich and poor.
+  - sentence: Secondly, there {{answer}} a division between rich and poor.
     answer: ought not to be
     options:
     - mustn`t be
@@ -515,7 +516,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: In order to attract people and … their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language.
+  - sentence: In order to attract people and {{answer}} their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language.
     answer: have them practice 
     options:
     - get them practice
@@ -527,14 +528,14 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: If it … my lack of knowledge, skills, experience, and some other things like that, I wouldn`t have been fired.
+  - sentence: If it {{answer}} my lack of knowledge, skills, experience, and some other things like that, I wouldn`t have been fired.
     answer: hadn`t been for
     options:
     - weren`t because
     - hadn`t been due to
     - weren`t because of
 
-  - sentence: They had become very good friends and their friendship could have gone a little further if it … his character.
+  - sentence: They had become very good friends and their friendship could have gone a little further if it {{answer}} his character.
     answer: hadn`t been for
     options:
     - wasn`t because of
@@ -546,7 +547,8 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: … of children who hate reading as they believe that it is pointless, but they are not able to judge from a young age.
+  - sentence: |
+      {{answer}} of children who hate reading as they believe that it is pointless, but they are not able to judge from a young age.
     answer: Many are the examples
     options:
     - The many are examples
@@ -558,14 +560,16 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: … from the mistakes of the past, we would have given up fighting each other a long time ago.
+  - sentence: |
+      {{answer}} from the mistakes of the past, we would have given up fighting each other a long time ago.
     answer: Had we learnt
     options:
     - Did we learn
     - Have we learnt
     - If we learn
 
-  - sentence: … an option I would have chosen that instead of my car.
+  - sentence: |
+      {{answer}} an option I would have chosen that instead of my car.
     answer: Had public transportation been
     options:
     - Did public transportation been
@@ -577,7 +581,7 @@ questions:
   recommendation: text of recommendation
   variants:
 
-  - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I … it on my seat.
+  - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I {{answer}} it on my seat.
     answer: couldn`t have left
     options:
     - wasn`t able to leave
