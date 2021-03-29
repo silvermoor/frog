@@ -2,10 +2,10 @@
 questions:
 
 - id: 1 
-  recommendation: as (так) + прилагательное или наречие + as (как) - Погода не ТАК прохладна, КАК я ожидал, она просто идеальна. # Как поставить двоеточие? Или нельзя..? Выдаёт ошибку.
+  recommendation: "as (так) + прилагательное или наречие + as (как) - Погода не ТАК прохладна, КАК я ожидал, она просто идеальна."
   variants:
 
-  - sentence: "The weather is not {{answer}} I expected, it`s just perfect." # Можно так? А то знаки препинания мешают.
+  - sentence: "The weather is not {{answer}} I expected, it`s just perfect." 
     answer: as cold as
     options:
     - cold
@@ -17,12 +17,12 @@ questions:
   recommendation: text of recommendation # Как строку разбить на несколько на странице? \n?
   variants:
 
-  - sentence: If they {{answer}} there, I {{answer}} very lonely.
-    answer: hadn`t been, would have been
+  - sentence: If they {{answer}} there, I`d have been very lonely.
+    answer: hadn`t been
     options:
-    - haven`t been, would have been
-    - hadn`t been, will be
-    - haven`t been, will be
+    - haven`t been
+    - hadn`t had been
+    - weren`t
 
 
 - id: 3 
