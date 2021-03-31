@@ -9075,18 +9075,16 @@ var $elm$core$List$partition = F2(
 			_Utils_Tuple2(_List_Nil, _List_Nil),
 			list);
 	});
-var $elm$core$Tuple$second = function (_v0) {
-	var y = _v0.b;
-	return y;
-};
 var $author$project$Main$nextQuestion = function (model) {
-	var parts = A2(
+	var _v0 = A2(
 		$elm$core$List$partition,
 		function (q) {
 			return _Utils_cmp(q.t, model.E) < 1;
 		},
 		model.M);
-	var questions = _Utils_ap(parts.b, parts.a);
+	var past = _v0.a;
+	var future = _v0.b;
+	var questions = _Utils_ap(future, past);
 	return $elm$core$List$head(
 		A2(
 			$elm$core$List$filter,
