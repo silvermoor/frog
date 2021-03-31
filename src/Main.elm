@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Browser
 import Css exposing (..)
-import Html.Styled exposing (Html, button, div, li, span, text, toUnstyled, ul)
+import Html.Styled exposing (Html, br, button, div, li, span, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
 import Http
@@ -53,6 +53,32 @@ type alias Question =
     , answer : Maybe String
     , recommendation : String
     }
+
+
+type alias QuestionState =
+    Maybe Bool
+
+
+questionState : Question -> Variant -> QuestionState
+questionState q v =
+    case q.answer of
+        Nothing ->
+            Nothing
+
+        Just answer ->
+            Just (answer == v.answer)
+
+
+nextQuestion : Model -> Maybe Question
+nextQuestion model =
+    let
+        parts =
+            List.partition (\q -> q.id <= model.currentQuestionId) model.questions
+
+        questions =
+            Tuple.second parts ++ Tuple.first parts
+    in
+    List.filter (\q -> q.answer == Nothing) questions |> List.head
 
 
 init : () -> ( Model, Cmd Msg )
@@ -193,6 +219,9 @@ viewBody model =
 
                         Nothing ->
                             "…"
+
+                nq =
+                    nextQuestion model
             in
             div
                 [ css
@@ -207,12 +236,27 @@ viewBody model =
                 ]
                 [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text
                 , ul [] <| List.map (viewOption q.answer) options
+                , viewActionButton nq
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
                 ]
 
         Nothing ->
             div [] [ text "Question not found" ]
+
+
+viewActionButton : Maybe Question -> Html Msg
+viewActionButton nq =
+    case nq of
+        Nothing ->
+            button [ css [ fontSize (px 25) ] ] [ text "See result" ]
+
+        Just q ->
+            button
+                [ onClick (ChoseQuestion q.id)
+                , css [ fontSize (px 25) ]
+                ]
+                [ text <| "Go to " ++ String.fromInt q.id ]
 
 
 viewQuestions : Model -> Html Msg

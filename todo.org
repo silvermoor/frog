@@ -1,5 +1,7 @@
 * DONE shuffle options
 * DONE shuffle question variants
 * DONE mark answerd questions
+* DONE interpolate sentence with chosen option
+* DONE button "next" to next unaswered
+* DONE button "result" when all answered
 * TODO result view
-* TODO interpolate sentence with chosen option
