@@ -72,11 +72,11 @@ questionState q v =
 nextQuestion : Model -> Maybe Question
 nextQuestion model =
     let
-        parts =
+        ( past, future ) =
             List.partition (\q -> q.id <= model.currentQuestionId) model.questions
 
         questions =
-            Tuple.second parts ++ Tuple.first parts
+            future ++ past
     in
     List.filter (\q -> q.answer == Nothing) questions |> List.head
 
