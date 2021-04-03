@@ -177,6 +177,10 @@ questions:
 
 - id: 11
   recommendation: |
+   Future Perfect Continuous: will + have been + Ving
+   Используется, когда делается акцент на длительности действия с точки зрения будущего: 
+   К НОЯБРЮ я БУДУ жить здесь уже ПЯТЬ ЛЕТ.
+   Часто употреблено со структурой: by… for… (к… в течение…).
   variants:
 
   - sentence: By November, I {{answer}} living here for five years.
@@ -189,6 +193,12 @@ questions:
 
 - id: 12
   recommendation: |
+   Wish/If only (жаль/если бы):
+   Сожаление о настоящей ситуации: wish + Past Simple
+   Сожаление о прошедшей ситуации: wish + Past Perfect
+   Сожаление о будущей ситуации: wish + would V
+   ЕСЛИ БЫ я только ПОСЛУШАЛСЯ своего отца! 
+   Я ЖАЛЕЮ, что РАССКАЗАЛ Энн о своих планах (Я бы хотел, чтобы я не рассказал…).
   variants:
 
   - sentence: If only I {{answer}} to my father!
@@ -208,6 +218,10 @@ questions:
 
 - id: 13
   recommendation: |
+   Who/which/that (кто/что/это)
+   who – кто, который (одушевлённое)
+   which– что, который, (неодушевленное)
+   that – это, который (одушевлённое/неодушевлённое - неформальное)
   variants:
 
   - sentence: I would like to do some painting, {{answer}} I`m quite good at.
@@ -220,6 +234,12 @@ questions:
 
 - id: 14
   recommendation: |
+   Past Perfect Continuous: had been + Ving
+   Используется, когда делается акцент на длительности действия, закончившегося до другого действия в прошлом/к какому-то времени в прошлом:
+   Мы гуляли ДЕСЯТЬ МИНУТ, ПОКА не пошёл дождь.
+   Часто употреблено со структурой: by… for… (к… в течение…).
+   Также, когда говорим о длительном действии, результат которого виден в прошлом:
+   ДОЛГОЕ ВРЕМЯ шёл снег, ПОЭТОМУ я не СМОГ выйти на прогулку.
   variants:
 
   - sentence: It {{answer}} for a long time so I could not go for a walk.
@@ -239,6 +259,10 @@ questions:
 
 - id: 15
   recommendation: |
+   Used to – бывало раньше (о привычных действиях и состояниях в прошлом, которые больше не происходят):
+   Бывало, что мой дедушка рассказывал нам смешные истории. 
+   Would – бывало раньше (о привычных действиях в прошлом, которые больше не происходят):
+   Я усердно работал. Бывало, что я проводил много часов на рабочем месте.
   variants:
 
   - sentence: My granddad {{answer}} us fun stories.
@@ -258,6 +282,8 @@ questions:
 
 - id: 16
   recommendation: |
+   Rather than (больше…, чем…) – сравнение:
+   Нам БОЛЬШЕ нравится гулять по горам, ЧЕМ ехать в Эдинбург.
   variants:
 
   - sentence: We are keen on walking in the mountains {{answer}} on a trip to Edinburgh.
@@ -270,6 +296,8 @@ questions:
 
 - id: 17
   recommendation: |
+   Be about to (собираться):
+   Я сказал ему, что наш отец СОБИРАЕТСЯ купить новенькую машину.
   variants:
 
   - sentence: I told him that our father {{answer}} a brand new car.
@@ -282,6 +310,11 @@ questions:
 
 - id: 18
   recommendation: |
+   can easily – с лёгкостью, несложно что-то сделать;
+   can hardly – не мочь, трудно сделать что-то:
+   Вы ДАЖЕ НЕ представляете, через что я прошел как учитель.
+   can still – всё ещё мочь:
+   Вы ВСЁ ЕЩЁ МОЖЕТЕ увидеть следы той аварии.
   variants:
 
   - sentence: You {{answer}} imagine what I have went through as a teacher.
@@ -301,6 +334,8 @@ questions:
     
 - id: 19
   recommendation: |
+   Be likely to (быть склонным к чему-то; вероятно, что…):
+   Люди, которые читают книги, СКЛОННЫ БЫТЬ более осведомленными (вероятно, более осведомлённые).
   variants:
 
   - sentence: People who read books {{answer}} more knowledgeable.
@@ -313,6 +348,8 @@ questions:
 
 - id: 20
   recommendation: |
+   Ving – в качестве существительного:
+   Многие говорят, что у них просто нет времени на размышления о своем здоровье (think/думать – thinking/размышление).
   variants:
 
   - sentence: Many people say that they just don`t have time for {{answer}} about their health.
