@@ -362,6 +362,8 @@ questions:
 
 - id: 21
   recommendation: |
+   None (ни одного; нет):
+   Что касается вашего вопроса о каких-либо особых требованиях некоторых студентов – я рад, что могу сказать вам, что в этом году их нет (нет ни одного).
   variants:
 
   - sentence: Concerning your question about any special requirements of some students - I am glad that I am able to tell you that there {{answer}} this year.
@@ -374,6 +376,8 @@ questions:
 
 - id: 22
   recommendation: |
+   Условное неполное предложение:
+   Блюда подаются ПО ЗАПРОСУ трижды в день, если не требуется пикник → если блюда запрашиваются, то они подаются… – If [meals are] requested, meals are served…
   variants:
 
   - sentence: Meals are served, if {{answer}} , three times a day, unless picnic lunches are needed.
@@ -386,6 +390,8 @@ questions:
 
 - id: 23
   recommendation: |
+   Very/too/so few (очень/слишком/так мало):
+   Конечно, некоторые автомобилисты перешли на велосипеды или на общественный транспорт, но СЛИШКОМ МАЛО.
   variants:
 
   - sentence: Sure, some of the motorists changed to bicycles or to public transport - but {{answer}} .
@@ -398,6 +404,8 @@ questions:
 
 - id: 24
   recommendation: |
+   Get + дополнение + Ving чтобы вызвать что-то или дать указание чему-то случиться (неформально):
+   Но все же оба концерта были великолепны, так как группы действительно знают, как ЗАСТАВИТЬ ЛЮДЕЙ ДВИГАТЬСЯ, но двумя совершенно разными способами.
   variants:
 
   - sentence: But still both concerts were great as the bands really know how to {{answer}} , but in two completely different ways.
@@ -410,6 +418,8 @@ questions:
 
 - id: 25
   recommendation: |
+   Not necessarily (не обязательно) – исключение из общего числа:
+   В заключение я хочу сказать, что, хотя то, что мы носим, НЕ ОБЯЗАТЕЛЬНО определяет, кто мы есть, оно играет в этом большую роль.
   variants:
 
   - sentence: As a conclusion, I want to say that while what we wear {{answer}} define who we are, it does play a big part in it.
@@ -422,6 +432,8 @@ questions:
 
 - id: 26
   recommendation: |
+   suggest/say/(глагол речи) that подлежащее + Present Simple = предложение, обязательство:
+   Мы бы ПРЕДЛОЖИЛИ нашему руководству присмотреться.
   variants:
 
   - sentence: We would suggest that our management {{answer}} a closer look.
@@ -434,6 +446,8 @@ questions:
 
 - id: 27
   recommendation: |
+   Yet (при этом, всё ещё) в качестве союза:
+   Этот художественный колледж известен своими опытными учениками, ПРИ ЭТОМ у него нет собственной галереи.
   variants:
 
   - sentence: This art college is known for its very skilled students, and {{answer}} it doesn`t have its own gallery.
@@ -446,6 +460,8 @@ questions:
 
 - id: 28
   recommendation: |
+   If + неличный оборот (в качестве сказуемого выступает неличная форма глагола):
+   Такси много, но они очень дорогие ПО СРАВНЕНИЮ с лондонскими такси.
   variants:
 
   - sentence: There are plenty of taxis but they are very expensive, if {{answer}} with London taxis.
@@ -458,6 +474,10 @@ questions:
 
 - id: 29
   recommendation: |
+   Slightly/a bit/much (чуть/немного/намного) + more/less (больше/меньше):
+   Я говорю по-испански ЧУТЬ лучше, чем по-английски, потому что в Испании я прожил дольше, чем в Англии.
+   Это будет НЕМНОГО дороже автобуса, но безопаснее и быстрее.
+   Несмотря на все противоречия между этими двумя поколениями, внуки не должны забывать, что их дедушки и бабушки НАМНОГО опытнее.
   variants:
 
   - sentence: My Spanish is {{answer}} fluent than my English, because I lived in Spain longer than in England.
@@ -484,6 +504,11 @@ questions:
     
 - id: 30
   recommendation: |
+   Сложные прилагательные – пишутся через дефис, если выражают единую идею:
+   Я бы назвал себя СПОКОЙНЫМ человеком (= calm).
+   Предлагаем вложить определенную сумму в ВЫШЕПЕРЕЧИСЛЕННЫЕ технические устройства (= aforementioned).
+   Но поскольку она не живет в ОБЕСПЕЧЕННОЙ семье, Ольга никогда не могла позволить себе дополнительные частные уроки (= prosperous).
+   Если бы кто-нибудь когда-либо видел это, они бы согласились со мной, что это была самая ПОТРЯСАЮЩАЯ дорога в мире (= awesome).
   variants:
 
   - sentence: I would describe myself as an {{answer}} person.
@@ -509,6 +534,9 @@ questions:
 
 - id: 31
   recommendation: |
+   The slightest/the faintest (малейший, ни малейшего) + существительное:
+   Они действуют как потребители и никогда не проявляют НИ МАЛЕЙШЕГО интереса к изучению и обмену мнениями с местными жителями.
+   Не имею НИ МАЛЕЙШЕГО понятия (понятия не имею).
   variants:
 
   - sentence: They act as consumers and never show {{answer}} interest in learning and sharing opinions with the locals.
@@ -528,6 +556,8 @@ questions:
 
 - id: 32
   recommendation: |
+   Were + местоимение + to V = выражение состояния, формальный стиль:
+   ЕСЛИ БЫ МЫ ПРЕДОСТАВИЛИ им такую возможность, это было бы большим преимуществом не только для них, но и для будущего общества.
   variants:
 
   - sentence: |
@@ -541,6 +571,8 @@ questions:
 
 - id: 33
   recommendation: |
+   Many a + существительное – подчёркивает предмет обсуждения (существительное):
+   Это вызвало МНОГО вопросов, которые я хотел бы здесь прокомментировать.
   variants:
 
   - sentence: It has raised {{answer}} which I`d like to comment upon here.
@@ -553,6 +585,8 @@ questions:
 
 - id: 34
   recommendation: |
+   Be + due to – запланированные будущие события с точки зрения прошлого: 
+   Было раннее утро, и мой самолет ДОЛЖЕН БЫЛ вылететь примерно через 40 минут.
   variants:
 
   - sentence: It was quite early in the morning and my plane {{answer}} leave in about 40 minutes.
@@ -565,6 +599,8 @@ questions:
 
 - id: 35
   recommendation: |
+   Ought not to + V (не должно; неправильно с точки зрения общественного мнения, порядка):
+   Во-вторых, НЕ ДОЛЖНО быть разделения на богатых и бедных. (это неправильно, аморально)
   variants:
 
   - sentence: Secondly, there {{answer}} a division between rich and poor.
@@ -577,6 +613,8 @@ questions:
 
 - id: 36
   recommendation: |
+   Have + местоимение + V – заставить, попросить кого-то что-то сделать:
+   Чтобы привлечь людей и ЗАСТАВИТЬ ИХ ПРАКТИКОВАТЬ свой английский, мы могли бы указать на преимущества и возможности, которые можно получить, получив образование по этому языку.
   variants:
 
   - sentence: In order to attract people and {{answer}} their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language.
@@ -589,6 +627,9 @@ questions:
 
 - id: 37
   recommendation: |
+   Had it not been for/if it had not been for – выражение причины чего-либо (если бы не…):
+   ЕСЛИ БЫ НЕ отсутствие у меня знаний, навыков, опыта и других подобных вещей, ТО меня бы не уволили.
+   Они стали очень хорошими друзьями, и их дружба могла бы пойти немного дальше, ЕСЛИ БЫ НЕ характер Дэна.
   variants:
 
   - sentence: If it {{answer}} my lack of knowledge, skills, experience, and some other things like that, I wouldn`t have been fired.
@@ -608,6 +649,8 @@ questions:
 
 - id: 38
   recommendation: |
+   Many are + существительное – для представления чего-то (есть много, существует):
+   ЕСТЬ МНОГО примеров, когда дети ненавидят чтение, поскольку считают его бессмысленным, но в таком раннем возрасте ещё невозможно судить.
   variants:
 
   - sentence: |
@@ -621,6 +664,9 @@ questions:
 
 - id: 39
   recommendation: |
+   Had + подлежащее + V3 – для выражения нереальной/воображаемой ситуации в прошлом (аналог условного предложения 3 типа):
+   ЕСЛИ БЫ мы ИЗВЛЕКЛИ уроки из ошибок прошлого, мы БЫ давно ОТКАЗАЛИСЬ от борьбы друг с другом.
+   ЕСЛИ БЫ общественный транспорт БЫЛ вариантом, я БЫ ВЫБРАЛ его вместо своей машины.
   variants:
 
   - sentence: |
@@ -642,6 +688,8 @@ questions:
 
 - id: 40
   recommendation: |
+   Could not have + V3 – не мог; предположение о прошлом:
+   Представь моё разочарование, когда я понял, что не принёс тетрадь обратно из паба. Конечно, я НЕ МОГ оставить её на своём месте.
   variants:
 
   - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I {{answer}} it on my seat.
