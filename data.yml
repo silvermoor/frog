@@ -471,7 +471,7 @@ questions:
   variants:
 
   - sentence: |
-  {{answer}} them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
+      {{answer}} them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
     answer: Were we to give
     options:
     - We would give
