@@ -18,6 +18,10 @@ questions:
 
 - id: 2 
   recommendation: | 
+   Условные придаточные предложения 3 типа: 
+   «if» (если) + past perfect, «would have» + V3 
+   Воображаемые ситуации в прошлом, часто с сожалением.
+   Если бы они не были здесь, мне было бы очень одиноко.
   variants:
 
   - sentence: If they {{answer}} there, I`d have been very lonely.
@@ -30,6 +34,11 @@ questions:
 
 - id: 3 
   recommendation: |
+   Вложенные вопросы:
+   1 (вопросительный порядок слов – вопрос/вспомогательный вопрос “do”/модальный глагол + подлежащее + сказуемое) + 2 (прямой порядок слов – «вопрос wh…(where, what, what, who)/can/to be + подлежащее + сказуемое»)
+   Во втором вопросе опускается вспомогательный глагол “do”.
+   «Do you know» - вопросительный порядок +
+   where Jane left her keys? – WHERE + подлежащее + сказуемое (Прямой вопрос: «Where DID Jane left her keys?»)
   variants:
 
   - sentence: Do you know where {{answer}} her keys?
@@ -42,6 +51,10 @@ questions:
 
 - id: 4 
   recommendation: |
+   Словосочетания с «such» + прилагательное + существительное
+   «Такой», «настолько» – усиление, выделение прилагательного. 
+   Спасибо, что подарили мне НАСТОЛЬКО фантастический подарок на день рождения.
+   Кроме того, мы оба любили читать, и поэтому мы были ТАКИМИ хорошими друзьями.
   variants:
 
   - sentence: Thank you for giving me {{answer}} fantastic birthday present.
@@ -61,6 +74,8 @@ questions:
 
 - id: 5 
   recommendation: |
+   «even though» (даже если, хотя) для контраста до или после основного предложения:
+   Тебе следует пойти с сестрой, ДАЖЕ ЕСЛИ ты предпочитаешь побыть одна.
   variants:
 
   - sentence: You should come with your sister {{answer}} you would rather be alone.
@@ -73,6 +88,9 @@ questions:
 
 - id: 6
   recommendation: |
+   Разделительный вопрос:
+   Инвертируется главное утверждение в виде вопроса
+   Jane loves cats. → Does Jane love cats? → Doesn’t she… [love cats]?
   variants:
 
   - sentence: Jane loves cats, {{answer}}?
@@ -85,6 +103,8 @@ questions:
 
 - id: 7 
   recommendation: |
+   Слова, цитируемые в косвенной речи, всегда меняются на более прошедшем времени, чем в прямой (Present Simple → Past Simple, Past Simple → Past Perfect):
+   Он сказал, что он МОЖЕТ ПЛАВАТЬ очень быстро. (В прямой речи: «He said: ‘I can swim very fast’.» can → could) 
   variants:
 
   - sentence: He said that he {{answer}} very fast.
@@ -94,16 +114,12 @@ questions:
     - can swam 
     - is able to swim
 
-  - sentence: I was {{answer}} nervous that when he talked to me, I shouted to answer.
-    answer: so
-    options:
-    - really
-    - such
-    - very
-
 
 - id: 8 
   recommendation: |
+   Past Perfect: had + V3
+   Используется, когда одно действие произошло до другого в прошлом (или к какому-то времени).
+   Когда я вернулся домой, фильм УЖЕ НАЧАЛСЯ.
   variants:
 
   - sentence: When I got home, the film {{answer}} .
@@ -116,6 +132,10 @@ questions:
 
 - id: 9
   recommendation: |
+   Пассивный залог: to be + V3
+   Используется, когда действие выполняется над предметом (аналогом в русском языке являются причастие и глаголы с возвратным суффиксом -ся):
+   Паста ДЕЛАЕТСЯ из муки и воды. (её делают люди)
+   Книга Война и Мир НАПИСАНА Толстым. (Толстой написал эту книгу)
   variants:
 
   - sentence: Pasta {{answer}} with flour and water.
@@ -135,6 +155,9 @@ questions:
 
 - id: 10 
   recommendation: |
+   «as», «since» в качестве союза – так как
+   На следующей неделе меня не будет в школе, ТАК КАК я еду в Италию.
+   Завтра меня не будет в классе, ТАК КАК я пойду к врачу.
   variants:
 
   - sentence: I won`t be at school next week, {{answer}} I`m travelling to Italy.
