@@ -17,7 +17,7 @@ questions:
 
 
 - id: 2 
-  recommendation: text of recommendation # Как строку разбить на несколько на странице? \n?
+  recommendation: | 
   variants:
 
   - sentence: If they {{answer}} there, I`d have been very lonely.
@@ -29,7 +29,7 @@ questions:
 
 
 - id: 3 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Do you know where {{answer}} her keys?
@@ -41,7 +41,7 @@ questions:
 
 
 - id: 4 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Thank you for giving me {{answer}} fantastic birthday present.
@@ -60,7 +60,7 @@ questions:
 
 
 - id: 5 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: You should come with your sister {{answer}} you would rather be alone.
@@ -72,7 +72,7 @@ questions:
 
 
 - id: 6
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Jane loves cats, {{answer}}?
@@ -84,7 +84,7 @@ questions:
 
 
 - id: 7 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: He said that he {{answer}} very fast.
@@ -103,7 +103,7 @@ questions:
 
 
 - id: 8 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: When I got home, the film {{answer}} .
@@ -115,7 +115,7 @@ questions:
 
 
 - id: 9
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Pasta {{answer}} with flour and water.
@@ -134,7 +134,7 @@ questions:
 
 
 - id: 10 
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: I won`t be at school next week, {{answer}} I`m travelling to Italy.
@@ -153,7 +153,7 @@ questions:
 
 
 - id: 11
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: By November, I {{answer}} living here for five years.
@@ -165,7 +165,7 @@ questions:
 
 
 - id: 12
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: If only I {{answer}} to my father!
@@ -184,7 +184,7 @@ questions:
 
 
 - id: 13
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: I would like to do some painting, {{answer}} I`m quite good at.
@@ -196,7 +196,7 @@ questions:
 
 
 - id: 14
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: It {{answer}} for a long time so I could not go for a walk.
@@ -215,7 +215,7 @@ questions:
 
 
 - id: 15
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: My granddad {{answer}} us fun stories.
@@ -234,7 +234,7 @@ questions:
 
 
 - id: 16
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: We are keen on walking in the mountains {{answer}} on a trip to Edinburgh.
@@ -246,7 +246,7 @@ questions:
 
 
 - id: 17
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: I told him that our father {{answer}} a brand new car.
@@ -258,7 +258,7 @@ questions:
 
 
 - id: 18
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: You {{answer}} imagine what I have went through as a teacher.
@@ -277,7 +277,7 @@ questions:
     
     
 - id: 19
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: People who read books {{answer}} more knowledgeable.
@@ -289,7 +289,7 @@ questions:
 
 
 - id: 20
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Many people say that they just don`t have time for {{answer}} about their health.
@@ -301,7 +301,7 @@ questions:
 
 
 - id: 21
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Concerning your question about any special requirements of some students - I am glad that I am able to tell you that there {{answer}} this year.
@@ -313,7 +313,7 @@ questions:
 
 
 - id: 22
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Meals are served, if {{answer}} , three times a day, unless picnic lunches are needed.
@@ -325,7 +325,7 @@ questions:
 
 
 - id: 23
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Sure, some of the motorists changed to bicycles or to public transport - but {{answer}} .
@@ -337,7 +337,7 @@ questions:
 
 
 - id: 24
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: But still both concerts were great as the bands really know how to {{answer}} , but in two completely different ways.
@@ -349,7 +349,7 @@ questions:
 
 
 - id: 25
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: As a conclusion, I want to say that while what we wear {{answer}} define who we are, it does play a big part in it.
@@ -361,7 +361,7 @@ questions:
 
 
 - id: 26
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: We would suggest that our management {{answer}} a closer look.
@@ -373,7 +373,7 @@ questions:
 
 
 - id: 27
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: This art college is known for its very skilled students, and {{answer}} it doesn`t have its own gallery.
@@ -385,7 +385,7 @@ questions:
 
 
 - id: 28
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: There are plenty of taxis but they are very expensive, if {{answer}} with London taxis.
@@ -397,7 +397,7 @@ questions:
 
 
 - id: 29
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: My Spanish is {{answer}} fluent than my English, because I lived in Spain longer than in England.
@@ -423,7 +423,7 @@ questions:
     
     
 - id: 30
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: I would describe myself as an {{answer}} person.
@@ -448,7 +448,7 @@ questions:
 
 
 - id: 31
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: They act as consumers and never show {{answer}} interest in learning and sharing opinions with the locals.
@@ -467,11 +467,10 @@ questions:
 
 
 - id: 32
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
-  - sentence: |
-      {{answer}} them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
+  - sentence: {{answer}} them this opportunity, it would not only be a great advantage for them but for the future of our society as well.
     answer: Were we to give
     options:
     - We would give
@@ -480,7 +479,7 @@ questions:
 
 
 - id: 33
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: It has raised {{answer}} which I`d like to comment upon here.
@@ -492,7 +491,7 @@ questions:
 
 
 - id: 34
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: It was quite early in the morning and my plane {{answer}} leave in about 40 minutes.
@@ -504,7 +503,7 @@ questions:
 
 
 - id: 35
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Secondly, there {{answer}} a division between rich and poor.
@@ -516,7 +515,7 @@ questions:
 
 
 - id: 36
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: In order to attract people and {{answer}} their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language.
@@ -528,7 +527,7 @@ questions:
 
 
 - id: 37
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: If it {{answer}} my lack of knowledge, skills, experience, and some other things like that, I wouldn`t have been fired.
@@ -547,7 +546,7 @@ questions:
 
 
 - id: 38
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: |
@@ -560,7 +559,7 @@ questions:
 
 
 - id: 39
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: |
@@ -581,7 +580,7 @@ questions:
 
 
 - id: 40
-  recommendation: text of recommendation
+  recommendation: |
   variants:
 
   - sentence: Imagine my dismay when I realized I had not brought back the notebook from the pub. Surely I {{answer}} it on my seat.
