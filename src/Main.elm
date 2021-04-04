@@ -59,16 +59,6 @@ type alias QuestionState =
     Maybe Bool
 
 
-questionState : Question -> Variant -> QuestionState
-questionState q v =
-    case q.answer of
-        Nothing ->
-            Nothing
-
-        Just answer ->
-            Just (answer == v.answer)
-
-
 nextQuestion : Model -> Maybe Question
 nextQuestion model =
     let
@@ -79,6 +69,15 @@ nextQuestion model =
             future ++ past
     in
     List.filter (\q -> q.answer == Nothing) questions |> List.head
+
+
+numberOfPoints : Model -> Int
+numberOfPoints model =
+    let
+        countQuestion q acc =
+            1
+    in
+    List.foldl countQuestion 0 model.questions
 
 
 init : () -> ( Model, Cmd Msg )
@@ -193,21 +192,29 @@ view model =
     }
 
 
+getVariant : Question -> Int -> Variant
+getVariant q s =
+    case shuffleList (Random.initialSeed <| s + q.id) q.variants |> List.head of
+        Just v ->
+            v
+
+        Nothing ->
+            { sentence = ""
+            , options = []
+            , answer = "ok"
+            }
+
+getQuestion : Model -> Int -> Maybe Question
+getQuestion model id =
+    model.questions |> List.filter (\q -> q.id == id) |> List.head
+
 viewBody : Model -> Html Msg
 viewBody model =
-    case model.questions |> List.filter (\q -> q.id == model.currentQuestionId) |> List.head of
+    case getQuestion model model.currentQuestionId of
         Just q ->
             let
                 variant =
-                    case shuffleList (Random.initialSeed <| model.seed + q.id) q.variants |> List.head of
-                        Just v ->
-                            v
-
-                        Nothing ->
-                            { sentence = ""
-                            , options = []
-                            , answer = "ok"
-                            }
+                    getVariant q model.seed
 
                 options =
                     shuffleList (Random.initialSeed <| model.seed + q.id) (variant.answer :: variant.options)
