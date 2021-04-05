@@ -16,7 +16,7 @@ levels:
       Слова о количестве: any, some, few, a lot of, a piece of...
   - name: B1
     points: 5
-    recommendation: |
+    recommendations: |
       Все времена (активный + пассивный залог).
       Глаголы состояния see, hear, smell...; know, believe, understand...; like, love, hate..; be, contain, include...
       Future (Simple, Continuous, Perfect, Perfect Continuous) + выражения и другие времена.
@@ -29,7 +29,7 @@ levels:
       Приём инверсии.
   - name: B2
     points: 15
-    recommendation: |
+    recommendations: |
       Смешанный тип условных предложений: 2-1 / 2-3 / 3-2.
       Различные виды инверсии.
       Безличные конструкции: They say women live longer than men. It is said that woman live longer than men...
@@ -38,11 +38,11 @@ levels:
       Опущение различных структур или частей предложений (эллипсис).
   - name: C1
     points: 25
-    recommendation: |
+    recommendations: |
       Употребление всех распространённых и основных грамматических тем в разговорной/письменной практике: говорение, чтение текстов, письменная речь.
   - name: C2
     points: 35
-    recommendation: ""
+    recommendations: ""
 
 questions:
 

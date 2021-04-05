@@ -3,7 +3,7 @@ module Main exposing (..)
 import Browser
 import Css exposing (..)
 import Dict exposing (Dict)
-import Html.Styled exposing (Html, article, br, button, div, li, p, span, text, toUnstyled, ul)
+import Html.Styled exposing (Html, article, br, button, div, h2, li, p, span, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
 import Http
@@ -40,6 +40,7 @@ type alias Model =
     , seed : Int
     , finished : Bool
     , levels : List Level
+    , error : Maybe String
     }
 
 
@@ -67,7 +68,7 @@ type alias Question =
 type alias Level =
     { name : String
     , points : Int
-    , recommendation : String
+    , recommendations : String
     }
 
 
@@ -104,6 +105,7 @@ init _ =
       , seed = 0
       , finished = False
       , levels = []
+      , error = Nothing
       }
     , Cmd.batch
         [ Http.get
@@ -126,6 +128,8 @@ type Msg
     | SetSeed Time.Posix
     | Finish
     | SetRightAnswers
+    | SetRandomAnswers
+    | SetWrongAnswers
 
 
 
@@ -147,6 +151,41 @@ setRightAnswers model =
     in
     { model | questions = newQuestions }
 
+setWrongAnswers : Model -> Model
+setWrongAnswers model =
+    let
+        setAnswer q =
+            let
+                variant =
+                    getVariant model q
+            in
+            { q | answer = Just "!@#$" }
+
+        newQuestions =
+            List.map setAnswer model.questions
+    in
+    { model | questions = newQuestions }
+
+
+
+
+
+setRandomAnswers : Model -> Model
+setRandomAnswers model =
+    let
+        setAnswer q =
+            let
+                variant =
+                    getVariant model q
+                answer =
+                    shuffleList model q.id (variant.answer :: variant.options) |> List.head
+            in
+            { q | answer = answer }
+
+        newQuestions =
+            List.map setAnswer model.questions
+    in
+    { model | questions = newQuestions }
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -176,19 +215,34 @@ update msg model =
                     , Cmd.none
                     )
 
-                Err _ ->
-                    ( model, Cmd.none )
+                Err err ->
+                    let
+                        message =
+                            case err of
+                                Http.BadBody details ->
+                                    details
+
+                                _ ->
+                                    "Something wrong!"
+                    in
+                    ( { model | error = Just message }, Cmd.none )
 
         SetSeed time ->
             ( { model | seed = Time.posixToMillis time }
             , Cmd.none
             )
 
+        Finish ->
+            ( { model | finished = True }, Cmd.none )
+
         SetRightAnswers ->
             ( setRightAnswers model, Cmd.none )
 
-        Finish ->
-            ( { model | finished = True }, Cmd.none )
+        SetRandomAnswers ->
+            ( setRandomAnswers model, Cmd.none )
+
+        SetWrongAnswers ->
+            ( setWrongAnswers model, Cmd.none )
 
 
 
@@ -253,7 +307,7 @@ view model =
 
 getVariant : Model -> Question -> Variant
 getVariant model q =
-    case shuffleList (Random.initialSeed <| model.seed + q.id) q.variants |> List.head of
+    case shuffleList model q.id q.variants |> List.head of
         Just v ->
             v
 
@@ -309,7 +363,7 @@ viewBody model =
                     getVariant model q
 
                 options =
-                    shuffleList (Random.initialSeed <| model.seed + q.id) (variant.answer :: variant.options)
+                    shuffleList model q.id (variant.answer :: variant.options)
 
                 answerText =
                     case q.answer of
@@ -334,26 +388,36 @@ viewBody model =
                 , ul [] <| List.map (viewOption q.answer) options
                 , viewActionButton model
                 , viewQuestions model
-                , div [] [ text (String.fromInt <| pointsCount model) ]
+                , viewResume model
                 , div
                     [ css
                         [ marginTop (px 40)
                         , num 0.2 |> opacity
                         ]
                     ]
-                    [ div []
-                        [ text "Debug area:"
-                        , br [] []
-                        , text ("seed: " ++ String.fromInt model.seed)
+                    [ text "Debug area:"
+                    , div []
+                        [ text ("seed: " ++ String.fromInt model.seed)
                         , br [] []
                         , text ("right answers: " ++ (String.fromInt <| pointsCount model))
                         ]
-                    , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer All Right" ]
+                    , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer all right" ]
+                    , button [ onClick SetRandomAnswers, css [ fontSize (px 18) ] ] [ text "Answer all random" ]
+                    , button [ onClick SetWrongAnswers, css [ fontSize (px 18) ] ] [ text "Answer all wrong" ]
                     ]
                 ]
 
         Nothing ->
-            div [] [ text "Question not found" ]
+            let
+                message =
+                    case model.error of
+                        Nothing ->
+                            "Question not found"
+
+                        Just err ->
+                            err
+            in
+            div [] [ text message ]
 
 
 viewActionButton : Model -> Html Msg
@@ -466,9 +530,33 @@ viewOption answer option =
         ]
 
 
-shuffleList : Random.Seed -> List a -> List a
-shuffleList seed list =
-    shuffleListHelper seed list []
+viewResume : Model -> Html Msg
+viewResume model =
+    if model.finished then
+        let
+            points =
+                pointsCount model
+
+            maybeLevel =
+                List.filter (\l -> l.points < points) model.levels |> List.sortBy .points |> List.reverse |> List.head
+        in
+        case maybeLevel of
+            Just level ->
+                article []
+                    [ h2 [] [ text level.name ]
+                    , text level.recommendations
+                    ]
+
+            Nothing ->
+                text "Can't determine level"
+
+    else
+        text "keep up keeping up!"
+
+
+shuffleList : Model -> Int -> List a -> List a
+shuffleList model seed list =
+    shuffleListHelper (Random.initialSeed <| model.seed + seed) list []
 
 
 shuffleListHelper : Random.Seed -> List a -> List a -> List a
