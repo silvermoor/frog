@@ -1,4 +1,49 @@
 ---
+levels:
+  - name: ниже B1
+    points: 0
+    recommendations: |
+      Времена: Present (Simple, Continuous, Perfect, Perfect Continuous); Past (Simple, Continuous, Perfect, Perfect Continuous); + выражения, относящиеся ко времени: used to/get used to, be going to и другие.
+      "Степени сравнения имён прилагательных и наречий (+ их порядок в предложении, образование наречий)."
+      Возвратно-усилительные местоимения (myself, yourself, himself…), притяжательные местоимения (mine, yours, his…).
+      Both/neither.
+      Модальные глаголы: can, must, have to, ought to, should, will, would, may, might и другие.
+      Разделительные вопросы.
+      Инфинитив глагола (to + V) / герундий (Ving).
+      Пассивный залог: Present Simple/Continuous/Perfect; Past Simple/Continuous/Perfect; Future Simple.
+      Условные предложения различных типов: 0/1/2/3. – Косвенная речь: утверждения/вопросы/повелительное наклонение.
+      Артикли.
+      Слова о количестве: any, some, few, a lot of, a piece of...
+  - name: B1
+    points: 5
+    recommendation: |
+      Все времена (активный + пассивный залог).
+      Глаголы состояния see, hear, smell...; know, believe, understand...; like, love, hate..; be, contain, include...
+      Future (Simple, Continuous, Perfect, Perfect Continuous) + выражения и другие времена.
+      Сравнительные структуры: as, like…
+      Обороты с: wish / If only.../I would rather...
+      Все группы модальных глаголов.
+      Различие формального и неформального стилей.
+      Условные предложения различных типов: 2/3.
+      Структура causative form: have + object + V3.
+      Приём инверсии.
+  - name: B2
+    points: 15
+    recommendation: |
+      Смешанный тип условных предложений: 2-1 / 2-3 / 3-2.
+      Различные виды инверсии.
+      Безличные конструкции: They say women live longer than men. It is said that woman live longer than men...
+      «Discourse markers» - организующие слова: first/second, finally, meanwhile; because, so, therefore; above all, especially, significantly…
+      Расщеплённые предложения.
+      Опущение различных структур или частей предложений (эллипсис).
+  - name: C1
+    points: 25
+    recommendation: |
+      Употребление всех распространённых и основных грамматических тем в разговорной/письменной практике: говорение, чтение текстов, письменная речь.
+  - name: C2
+    points: 35
+    recommendation: ""
+
 questions:
 
 - id: 1 

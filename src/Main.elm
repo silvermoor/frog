@@ -2,7 +2,8 @@ module Main exposing (..)
 
 import Browser
 import Css exposing (..)
-import Html.Styled exposing (Html, br, button, div, li, span, text, toUnstyled, ul)
+import Dict exposing (Dict)
+import Html.Styled exposing (Html, article, br, button, div, li, p, span, text, toUnstyled, ul)
 import Html.Styled.Attributes exposing (css, style)
 import Html.Styled.Events exposing (onClick)
 import Http
@@ -38,6 +39,13 @@ type alias Model =
     , currentQuestionId : Int
     , seed : Int
     , finished : Bool
+    , levels : List Level
+    }
+
+
+type alias ApiData =
+    { questions : List Question
+    , levels : List Level
     }
 
 
@@ -56,8 +64,11 @@ type alias Question =
     }
 
 
-type alias QuestionState =
-    Maybe Bool
+type alias Level =
+    { name : String
+    , points : Int
+    , recommendation : String
+    }
 
 
 nextQuestion : Model -> Maybe Question
@@ -71,9 +82,11 @@ nextQuestion model =
     in
     List.filter (\q -> q.answer == Nothing) questions |> List.head
 
+
 nextMistake : Model -> Maybe Question
 nextMistake model =
     List.filter (checkQuestion model) model.questions |> List.head
+
 
 numberOfPoints : Model -> Int
 numberOfPoints model =
@@ -90,6 +103,7 @@ init _ =
       , currentQuestionId = 1
       , seed = 0
       , finished = False
+      , levels = []
       }
     , Cmd.batch
         [ Http.get
@@ -108,7 +122,7 @@ init _ =
 type Msg
     = ChoseQuestion Int
     | ChoseAnswer String
-    | GotData (Result Http.Error (List Question))
+    | GotData (Result Http.Error ApiData)
     | SetSeed Time.Posix
     | Finish
     | SetRightAnswers
@@ -140,7 +154,7 @@ update msg model =
         ChoseAnswer answer ->
             let
                 updateQuestion q =
-                    if q.id == model.currentQuestionId then
+                    if questionIsCurremt model q then
                         { q | answer = Just answer }
 
                     else
@@ -153,9 +167,10 @@ update msg model =
 
         GotData result ->
             case result of
-                Ok questions ->
+                Ok data ->
                     ( { model
-                        | questions = questions
+                        | questions = data.questions
+                        , levels = data.levels
                         , currentQuestionId = 1
                       }
                     , Cmd.none
@@ -180,23 +195,34 @@ update msg model =
 -- API
 
 
-dataDecoder : JD.Decoder (List Question)
+dataDecoder : JD.Decoder ApiData
 dataDecoder =
-    JD.field "questions"
-        (JD.list
-            (JD.map4 Question
-                (JD.field "id" JD.int)
-                (JD.field "variants"
-                    (JD.list
-                        (JD.map3 Variant
-                            (JD.field "sentence" JD.string)
-                            (JD.field "options" (JD.list JD.string))
-                            (JD.field "answer" JD.string)
+    JD.map2 ApiData
+        (JD.field "questions"
+            (JD.list
+                (JD.map4 Question
+                    (JD.field "id" JD.int)
+                    (JD.field "variants"
+                        (JD.list
+                            (JD.map3 Variant
+                                (JD.field "sentence" JD.string)
+                                (JD.field "options" (JD.list JD.string))
+                                (JD.field "answer" JD.string)
+                            )
                         )
                     )
+                    (JD.succeed Nothing)
+                    (JD.field "recommendation" JD.string)
                 )
-                (JD.succeed Nothing)
-                (JD.field "recommendation" JD.string)
+            )
+        )
+        (JD.field "levels"
+            (JD.list
+                (JD.map3 Level
+                    (JD.field "name" JD.string)
+                    (JD.field "points" JD.int)
+                    (JD.field "recommendations" JD.string)
+                )
             )
         )
 
@@ -308,9 +334,22 @@ viewBody model =
                 , ul [] <| List.map (viewOption q.answer) options
                 , viewActionButton model
                 , viewQuestions model
-                , div [] [ text (String.fromInt model.seed) ]
                 , div [] [ text (String.fromInt <| pointsCount model) ]
-                , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer Random" ]
+                , div
+                    [ css
+                        [ marginTop (px 40)
+                        , num 0.2 |> opacity
+                        ]
+                    ]
+                    [ div []
+                        [ text "Debug area:"
+                        , br [] []
+                        , text ("seed: " ++ String.fromInt model.seed)
+                        , br [] []
+                        , text ("right answers: " ++ (String.fromInt <| pointsCount model))
+                        ]
+                    , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer All Right" ]
+                    ]
                 ]
 
         Nothing ->
@@ -348,7 +387,12 @@ viewActionButton model =
                     [ text <| "Next question" ]
 
 
-viewQuestionColor : Model -> Question -> String
+questionIsCurremt : Model -> Question -> Bool
+questionIsCurremt model q =
+    model.currentQuestionId == q.id
+
+
+viewQuestionColor : Model -> Question -> Color
 viewQuestionColor model q =
     let
         result =
@@ -356,21 +400,27 @@ viewQuestionColor model q =
     in
     if model.finished then
         if result then
-            "44AA44"
+            hex "44AA44"
 
         else
-            "AA4444"
+            hex "AA4444"
 
     else
-        "444444"
+        case q.answer of
+            Nothing ->
+                rgba 0 0 0 0.8
+
+            Just _ ->
+                rgba 0 0 0 0.2
 
 
 viewQuestions : Model -> Html Msg
 viewQuestions model =
     let
         qCursor q =
-            if model.currentQuestionId == q.id then
+            if questionIsCurremt model q then
                 borderBottom3 (px 2) solid (hex "fff")
+
             else
                 borderBottom3 (px 2) solid transparent
 
@@ -385,12 +435,12 @@ viewQuestions model =
                     , height (px 18)
                     , textAlign center
                     , cursor pointer
-                    , color (hex <| viewQuestionColor model q)
+                    , color <| viewQuestionColor model q
                     , fontSize (px 15)
                     , qCursor q
                     ]
                 ]
-            [ text <| String.fromInt q.id ]
+                [ text <| String.fromInt q.id ]
     in
     div [] <| List.map qButton model.questions
 
