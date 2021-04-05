@@ -375,8 +375,8 @@ viewBody model =
             in
             div
                 [ css
-                    [ width (px 460)
-                    , margin2 (px 20) auto
+                    [ width (pct 100)
+                    , margin2 (px 0) auto
                     , fontFamily sansSerif
                     , fontSize (pt 18)
                     , color (rgb 80 80 80)
