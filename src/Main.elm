@@ -204,9 +204,40 @@ getVariant q s =
             , answer = "ok"
             }
 
+
 getQuestion : Model -> Int -> Maybe Question
 getQuestion model id =
     model.questions |> List.filter (\q -> q.id == id) |> List.head
+
+
+pointsCount : Model -> Int
+pointsCount model =
+    let
+        check s q =
+            let
+                variant =
+                    getVariant q s
+            in
+            case q.answer of
+                Nothing ->
+                    False
+
+                Just answer ->
+                    answer == variant.answer
+
+        results =
+            List.map (check model.seed) model.questions
+
+        count result i =
+            case result of
+                True ->
+                    i + 1
+
+                False ->
+                    i
+    in
+    List.foldl count 0 results
+
 
 viewBody : Model -> Html Msg
 viewBody model =
@@ -246,6 +277,7 @@ viewBody model =
                 , viewActionButton nq
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
+                , div [] [ text (String.fromInt <| pointsCount model) ]
                 ]
 
         Nothing ->
