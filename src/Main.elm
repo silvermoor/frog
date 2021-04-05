@@ -96,7 +96,6 @@ nextMistake model =
     List.filter (not << checkQuestion model) questions |> List.head
 
 
-
 numberOfPoints : Model -> Int
 numberOfPoints model =
     let
@@ -231,7 +230,8 @@ update msg model =
 
         SetSeed time ->
             let
-                seed = Time.posixToMillis time
+                seed =
+                    Time.posixToMillis time
             in
             ( { model | seed = seed }
             , Http.get
@@ -393,10 +393,7 @@ viewBody model =
                     , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
                     ]
                 ]
-                [ div
-                    [ css [ height (px 120) ]
-                    ]
-                    [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text ]
+                [ viewSentence model q
                 , viewRule model q
                 , ul [ css [ margin (px 0), padding (px 0) ] ] <| List.map (viewOption q.answer) options
                 , viewActionButton model
@@ -435,19 +432,69 @@ viewBody model =
             div [] [ text message ]
 
 
+viewSentence : Model -> Question -> Html Msg
+viewSentence model q =
+    let
+        variant =
+            getVariant model q
+
+        answerText =
+            unwrap "..." identity q.answer
+
+        ( firstPart, secondPart ) =
+            case String.split "{{answer}}" variant.sentence of
+                a :: b :: _ ->
+                    ( text a, text b )
+
+                _ ->
+                    ( text "", text "" )
+
+        sentenceParts =
+            if model.finished then
+                if answerText /= variant.answer then
+                    [ firstPart
+                    , span [ css [ color (hex "aa2222"), textDecoration lineThrough ] ] [ text answerText ]
+                    , text " "
+                    , span [ css [ color (hex "22aa22") ] ] [ text variant.answer ]
+                    , secondPart
+                    ]
+
+                else
+                    [ firstPart
+                    , span [ css [ color (hex "22aa22") ] ] [ text answerText ]
+                    , secondPart
+                    ]
+
+            else
+                [ firstPart
+                , span
+                    [ css
+                        [ fontStyle italic
+                        , fontWeight bold
+                        ]
+                    ]
+                    [ text answerText ]
+                , secondPart
+                ]
+    in
+    p [] sentenceParts
+
+
 viewRule : Model -> Question -> Html Msg
 viewRule model q =
     if model.finished then
         p [] [ text q.recommendation ]
+
     else
         p [] [ text "Chose right option and click Next" ]
+
 
 viewActionButton : Model -> Html Msg
 viewActionButton model =
     let
         style =
             css
-                [lineHeight (px 32)
+                [ lineHeight (px 32)
                 , fontSize (px 24)
                 , padding (px 8)
                 , borderRadius (px 8)
@@ -589,6 +636,10 @@ viewResume model =
         text "keep up keeping up!"
 
 
+
+-- utils
+
+
 shuffleList : Model -> Int -> List a -> List a
 shuffleList model seed list =
     shuffleListHelper (Random.initialSeed <| model.seed + seed) list []
@@ -619,3 +670,13 @@ shuffleListHelper seed source result =
 
             Nothing ->
                 result
+
+
+unwrap : b -> (a -> b) -> Maybe a -> b
+unwrap default f m =
+    case m of
+        Nothing ->
+            default
+
+        Just a ->
+            f a
