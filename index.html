@@ -9625,6 +9625,26 @@ var $author$project$Main$viewActionButton = function (model) {
 		}
 	}
 };
+var $rtfeldman$elm_css$Html$Styled$article = $rtfeldman$elm_css$Html$Styled$node('article');
+var $rtfeldman$elm_css$Html$Styled$p = $rtfeldman$elm_css$Html$Styled$node('p');
+var $author$project$Main$viewArticle = function (recommendation) {
+	var lines = A2($elm$core$String$split, '\n', recommendation);
+	return A2(
+		$rtfeldman$elm_css$Html$Styled$article,
+		_List_Nil,
+		A2(
+			$elm$core$List$map,
+			function (r) {
+				return A2(
+					$rtfeldman$elm_css$Html$Styled$p,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$rtfeldman$elm_css$Html$Styled$text(r)
+						]));
+			},
+			lines));
+};
 var $author$project$Main$ChoseAnswer = function (a) {
 	return {$: 1, a: a};
 };
@@ -9821,7 +9841,6 @@ var $author$project$Main$viewQuestions = function (model) {
 		_List_Nil,
 		A2($elm$core$List$map, qButton, model.i));
 };
-var $rtfeldman$elm_css$Html$Styled$article = $rtfeldman$elm_css$Html$Styled$node('article');
 var $rtfeldman$elm_css$Html$Styled$h2 = $rtfeldman$elm_css$Html$Styled$node('h2');
 var $elm$core$List$sortBy = _List_sortBy;
 var $author$project$Main$viewResume = function (model) {
@@ -9849,12 +9868,19 @@ var $author$project$Main$viewResume = function (model) {
 					[
 						A2(
 						$rtfeldman$elm_css$Html$Styled$h2,
-						_List_Nil,
+						_List_fromArray(
+							[
+								$rtfeldman$elm_css$Html$Styled$Attributes$css(
+								_List_fromArray(
+									[
+										$rtfeldman$elm_css$Css$textAlign($rtfeldman$elm_css$Css$center)
+									]))
+							]),
 						_List_fromArray(
 							[
 								$rtfeldman$elm_css$Html$Styled$text(level.bH)
 							])),
-						$rtfeldman$elm_css$Html$Styled$text(level.bT)
+						$author$project$Main$viewArticle(level.bT)
 					]));
 		} else {
 			return $rtfeldman$elm_css$Html$Styled$text('Can\'t determine level');
@@ -9863,23 +9889,6 @@ var $author$project$Main$viewResume = function (model) {
 		return $rtfeldman$elm_css$Html$Styled$text('keep up keeping up!');
 	}
 };
-var $rtfeldman$elm_css$Html$Styled$p = $rtfeldman$elm_css$Html$Styled$node('p');
-var $author$project$Main$viewRule = F2(
-	function (model, q) {
-		return model.G ? A2(
-			$rtfeldman$elm_css$Html$Styled$p,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$rtfeldman$elm_css$Html$Styled$text(q.bS)
-				])) : A2(
-			$rtfeldman$elm_css$Html$Styled$p,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$rtfeldman$elm_css$Html$Styled$text('Chose right option and click Next')
-				]));
-	});
 var $rtfeldman$elm_css$Css$bold = {J: 0, C: 'bold'};
 var $rtfeldman$elm_css$Css$fontStyle = $rtfeldman$elm_css$Css$prop1('font-style');
 var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
@@ -10050,8 +10059,7 @@ var $author$project$Main$viewBody = function (model) {
 			_List_fromArray(
 				[
 					A2($author$project$Main$viewSentence, model, q),
-					A2($author$project$Main$viewRule, model, q),
-					A2(
+					model.G ? $author$project$Main$viewArticle(q.bS) : A2(
 					$rtfeldman$elm_css$Html$Styled$ul,
 					_List_fromArray(
 						[
