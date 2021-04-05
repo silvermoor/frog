@@ -394,8 +394,11 @@ viewBody model =
                     ]
                 ]
                 [ viewSentence model q
-                , viewRule model q
-                , ul [ css [ margin (px 0), padding (px 0) ] ] <| List.map (viewOption q.answer) options
+                , if model.finished then
+                    viewArticle q.recommendation
+
+                  else
+                    ul [ css [ margin (px 0), padding (px 0) ] ] <| List.map (viewOption q.answer) options
                 , viewActionButton model
                 , viewQuestions model
                 , viewResume model
@@ -480,13 +483,13 @@ viewSentence model q =
     p [] sentenceParts
 
 
-viewRule : Model -> Question -> Html Msg
-viewRule model q =
-    if model.finished then
-        p [] [ text q.recommendation ]
-
-    else
-        p [] [ text "Chose right option and click Next" ]
+viewArticle : String -> Html Msg
+viewArticle recommendation =
+    let
+        lines =
+            String.split "\n" recommendation
+    in
+    article [] <| List.map (\r -> p [] [ text r ]) lines
 
 
 viewActionButton : Model -> Html Msg
@@ -625,8 +628,8 @@ viewResume model =
         case maybeLevel of
             Just level ->
                 article []
-                    [ h2 [] [ text level.name ]
-                    , text level.recommendations
+                    [ h2 [ css [ textAlign center ] ] [ text level.name ]
+                    , viewArticle level.recommendations
                     ]
 
             Nothing ->

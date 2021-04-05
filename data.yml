@@ -1,7 +1,7 @@
 ---
 levels:
   - name: ниже B1
-    points: 0
+    points: -1
     recommendations: |
       Времена: Present (Simple, Continuous, Perfect, Perfect Continuous); Past (Simple, Continuous, Perfect, Perfect Continuous); + выражения, относящиеся ко времени: used to/get used to, be going to и другие.
       "Степени сравнения имён прилагательных и наречий (+ их порядок в предложении, образование наречий)."
