@@ -151,6 +151,7 @@ setRightAnswers model =
     in
     { model | questions = newQuestions }
 
+
 setWrongAnswers : Model -> Model
 setWrongAnswers model =
     let
@@ -159,15 +160,12 @@ setWrongAnswers model =
                 variant =
                     getVariant model q
             in
-            { q | answer = Just "!@#$" }
+            { q | answer = List.head variant.options }
 
         newQuestions =
             List.map setAnswer model.questions
     in
     { model | questions = newQuestions }
-
-
-
 
 
 setRandomAnswers : Model -> Model
@@ -177,6 +175,7 @@ setRandomAnswers model =
             let
                 variant =
                     getVariant model q
+
                 answer =
                     shuffleList model q.id (variant.answer :: variant.options) |> List.head
             in
@@ -186,6 +185,7 @@ setRandomAnswers model =
             List.map setAnswer model.questions
     in
     { model | questions = newQuestions }
+
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -384,8 +384,11 @@ viewBody model =
                     , backgroundImage <| linearGradient (stop <| hex "AAF") (stop <| hex "AFA") []
                     ]
                 ]
-                [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text
-                , ul [] <| List.map (viewOption q.answer) options
+                [ div
+                    [ css [ height (px 120) ]
+                    ]
+                    [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text ]
+                , ul [ css [ margin (px 0), padding (px 0) ] ] <| List.map (viewOption q.answer) options
                 , viewActionButton model
                 , viewQuestions model
                 , viewResume model
@@ -402,7 +405,9 @@ viewBody model =
                         , text ("right answers: " ++ (String.fromInt <| pointsCount model))
                         ]
                     , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer all right" ]
+                    , br [] []
                     , button [ onClick SetRandomAnswers, css [ fontSize (px 18) ] ] [ text "Answer all random" ]
+                    , br [] []
                     , button [ onClick SetWrongAnswers, css [ fontSize (px 18) ] ] [ text "Answer all wrong" ]
                     ]
                 ]
@@ -422,6 +427,18 @@ viewBody model =
 
 viewActionButton : Model -> Html Msg
 viewActionButton model =
+    let
+        style =
+            css
+                [lineHeight (px 32)
+                , fontSize (px 24)
+                , padding (px 8)
+                , borderRadius (px 8)
+                , borderStyle none
+                , width (pct 100)
+                , backgroundColor (rgba 255 255 255 0.8)
+                ]
+    in
     if model.finished then
         case nextMistake model of
             Nothing ->
@@ -430,7 +447,7 @@ viewActionButton model =
             Just q ->
                 button
                     [ onClick (ChoseQuestion q.id)
-                    , css [ fontSize (px 25) ]
+                    , style
                     ]
                     [ text <| "Next rule" ]
 
@@ -439,14 +456,14 @@ viewActionButton model =
             Nothing ->
                 button
                     [ onClick Finish
-                    , css [ fontSize (px 25) ]
+                    , style
                     ]
                     [ text "Finish" ]
 
             Just q ->
                 button
                     [ onClick (ChoseQuestion q.id)
-                    , css [ fontSize (px 25) ]
+                    , style
                     ]
                     [ text <| "Next question" ]
 
@@ -515,14 +532,15 @@ viewOption answer option =
         [ onClick (ChoseAnswer option)
         , css
             [ listStyle none
+            , margin (px 8)
             , lineHeight (px 32)
             , padding (px 8)
             , borderRadius (px 8)
             , if answer == Just option then
-                backgroundColor (hex "9f9")
+                backgroundColor (rgba 255 255 255 0.8)
 
               else
-                backgroundColor (hex "fff")
+                backgroundColor (rgba 255 255 255 0.2)
             ]
         ]
         [ text " "
