@@ -107,13 +107,7 @@ init _ =
       , levels = []
       , error = Nothing
       }
-    , Cmd.batch
-        [ Http.get
-            { url = Url.Builder.absolute [ "data.json" ] []
-            , expect = Http.expectJson GotData dataDecoder
-            }
-        , Task.perform SetSeed Time.now
-        ]
+    , Task.perform SetSeed Time.now
     )
 
 
@@ -228,8 +222,14 @@ update msg model =
                     ( { model | error = Just message }, Cmd.none )
 
         SetSeed time ->
-            ( { model | seed = Time.posixToMillis time }
-            , Cmd.none
+            let
+                seed = Time.posixToMillis time
+            in
+            ( { model | seed = seed }
+            , Http.get
+                { url = Url.Builder.absolute [ "data.json" ] [ Url.Builder.int "cache" seed ]
+                , expect = Http.expectJson GotData dataDecoder
+                }
             )
 
         Finish ->
