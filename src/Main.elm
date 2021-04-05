@@ -105,7 +105,23 @@ type Msg
     | ChoseAnswer String
     | GotData (Result Http.Error (List Question))
     | SetSeed Time.Posix
+    | SetRightAnswers
 
+
+-- for debug purposes
+setRightAnswers : Model -> Model
+setRightAnswers model =
+    let
+        setAnswer q =
+            let
+                variant = getVariant q model.seed
+            in
+            { q | answer = Just variant.answer }
+
+        newQuestions =
+            List.map setAnswer model.questions
+    in
+    { model | questions = newQuestions }
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -142,6 +158,8 @@ update msg model =
             , Cmd.none
             )
 
+        SetRightAnswers ->
+            ( setRightAnswers model, Cmd.none )
 
 
 -- API
@@ -278,6 +296,7 @@ viewBody model =
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
                 , div [] [ text (String.fromInt <| pointsCount model) ]
+                , button [ onClick SetRightAnswers, css [ fontSize (px 18) ]] [ text "Answer Random" ]
                 ]
 
         Nothing ->
