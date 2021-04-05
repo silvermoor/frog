@@ -37,6 +37,7 @@ type alias Model =
     { questions : List Question
     , currentQuestionId : Int
     , seed : Int
+    , finished : Bool
     }
 
 
@@ -70,6 +71,9 @@ nextQuestion model =
     in
     List.filter (\q -> q.answer == Nothing) questions |> List.head
 
+nextMistake : Model -> Maybe Question
+nextMistake model =
+    List.filter (checkQuestion model) model.questions |> List.head
 
 numberOfPoints : Model -> Int
 numberOfPoints model =
@@ -85,6 +89,7 @@ init _ =
     ( { questions = []
       , currentQuestionId = 1
       , seed = 0
+      , finished = False
       }
     , Cmd.batch
         [ Http.get
@@ -105,16 +110,21 @@ type Msg
     | ChoseAnswer String
     | GotData (Result Http.Error (List Question))
     | SetSeed Time.Posix
+    | Finish
     | SetRightAnswers
 
 
+
 -- for debug purposes
+
+
 setRightAnswers : Model -> Model
 setRightAnswers model =
     let
         setAnswer q =
             let
-                variant = getVariant q model.seed
+                variant =
+                    getVariant model q
             in
             { q | answer = Just variant.answer }
 
@@ -122,6 +132,7 @@ setRightAnswers model =
             List.map setAnswer model.questions
     in
     { model | questions = newQuestions }
+
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -160,6 +171,10 @@ update msg model =
 
         SetRightAnswers ->
             ( setRightAnswers model, Cmd.none )
+
+        Finish ->
+            ( { model | finished = True }, Cmd.none )
+
 
 
 -- API
@@ -210,9 +225,9 @@ view model =
     }
 
 
-getVariant : Question -> Int -> Variant
-getVariant q s =
-    case shuffleList (Random.initialSeed <| s + q.id) q.variants |> List.head of
+getVariant : Model -> Question -> Variant
+getVariant model q =
+    case shuffleList (Random.initialSeed <| model.seed + q.id) q.variants |> List.head of
         Just v ->
             v
 
@@ -228,23 +243,25 @@ getQuestion model id =
     model.questions |> List.filter (\q -> q.id == id) |> List.head
 
 
+checkQuestion : Model -> Question -> Bool
+checkQuestion model q =
+    let
+        variant =
+            getVariant model q
+    in
+    case q.answer of
+        Nothing ->
+            False
+
+        Just answer ->
+            answer == variant.answer
+
+
 pointsCount : Model -> Int
 pointsCount model =
     let
-        check s q =
-            let
-                variant =
-                    getVariant q s
-            in
-            case q.answer of
-                Nothing ->
-                    False
-
-                Just answer ->
-                    answer == variant.answer
-
         results =
-            List.map (check model.seed) model.questions
+            List.map (checkQuestion model) model.questions
 
         count result i =
             case result of
@@ -263,7 +280,7 @@ viewBody model =
         Just q ->
             let
                 variant =
-                    getVariant q model.seed
+                    getVariant model q
 
                 options =
                     shuffleList (Random.initialSeed <| model.seed + q.id) (variant.answer :: variant.options)
@@ -275,9 +292,6 @@ viewBody model =
 
                         Nothing ->
                             "…"
-
-                nq =
-                    nextQuestion model
             in
             div
                 [ css
@@ -292,64 +306,91 @@ viewBody model =
                 ]
                 [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text
                 , ul [] <| List.map (viewOption q.answer) options
-                , viewActionButton nq
+                , viewActionButton model
                 , viewQuestions model
                 , div [] [ text (String.fromInt model.seed) ]
                 , div [] [ text (String.fromInt <| pointsCount model) ]
-                , button [ onClick SetRightAnswers, css [ fontSize (px 18) ]] [ text "Answer Random" ]
+                , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer Random" ]
                 ]
 
         Nothing ->
             div [] [ text "Question not found" ]
 
 
-viewActionButton : Maybe Question -> Html Msg
-viewActionButton nq =
-    case nq of
-        Nothing ->
-            button [ css [ fontSize (px 25) ] ] [ text "See result" ]
+viewActionButton : Model -> Html Msg
+viewActionButton model =
+    if model.finished then
+        case nextMistake model of
+            Nothing ->
+                text "YOU ARE AWESOME!"
 
-        Just q ->
-            button
-                [ onClick (ChoseQuestion q.id)
-                , css [ fontSize (px 25) ]
-                ]
-                [ text <| "Go to " ++ String.fromInt q.id ]
+            Just q ->
+                button
+                    [ onClick (ChoseQuestion q.id)
+                    , css [ fontSize (px 25) ]
+                    ]
+                    [ text <| "Next rule" ]
+
+    else
+        case nextQuestion model of
+            Nothing ->
+                button
+                    [ onClick Finish
+                    , css [ fontSize (px 25) ]
+                    ]
+                    [ text "Finish" ]
+
+            Just q ->
+                button
+                    [ onClick (ChoseQuestion q.id)
+                    , css [ fontSize (px 25) ]
+                    ]
+                    [ text <| "Next question" ]
+
+
+viewQuestionColor : Model -> Question -> String
+viewQuestionColor model q =
+    let
+        result =
+            checkQuestion model q
+    in
+    if model.finished then
+        if result then
+            "44AA44"
+
+        else
+            "AA4444"
+
+    else
+        "444444"
 
 
 viewQuestions : Model -> Html Msg
 viewQuestions model =
     let
+        qCursor q =
+            if model.currentQuestionId == q.id then
+                borderBottom3 (px 2) solid (hex "fff")
+            else
+                borderBottom3 (px 2) solid transparent
+
         qButton q =
             span
                 [ onClick (ChoseQuestion q.id)
                 , css
                     [ padding (px 4)
                     , margin (px 5)
-                    , borderRadius (px 18)
                     , display inlineBlock
                     , width (px 27)
                     , height (px 18)
                     , textAlign center
                     , cursor pointer
-                    , backgroundColor
-                        (hex <|
-                            if q.id == model.currentQuestionId then
-                                "77cc77"
-
-                            else
-                                case q.answer of
-                                    Just _ ->
-                                        "aaaaff"
-
-                                    Nothing ->
-                                        "7777ff"
-                        )
+                    , color (hex <| viewQuestionColor model q)
                     , fontSize (px 15)
-                    , color (hex "fff")
+                    , qCursor q
                     ]
                 ]
-                [ text <| String.fromInt q.id ]
+            [ text <| String.fromInt q.id ]
     in
     div [] <| List.map qButton model.questions
 
