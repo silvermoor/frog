@@ -9380,6 +9380,32 @@ var $rtfeldman$elm_css$Html$Styled$Events$onClick = function (msg) {
 };
 var $rtfeldman$elm_css$Css$opacity = $rtfeldman$elm_css$Css$prop1('opacity');
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
+var $rtfeldman$elm_css$Css$PercentageUnits = 0;
+var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
+	function (units, unitLabel, numericValue) {
+		return {
+			bg: 0,
+			bp: 0,
+			ad: 0,
+			n: 0,
+			az: 0,
+			ah: 0,
+			I: 0,
+			ai: 0,
+			aj: 0,
+			R: 0,
+			S: 0,
+			A: 0,
+			K: numericValue,
+			ap: 0,
+			ar: unitLabel,
+			aK: units,
+			C: _Utils_ap(
+				$elm$core$String$fromFloat(numericValue),
+				unitLabel)
+		};
+	});
+var $rtfeldman$elm_css$Css$pct = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '%');
 var $author$project$Main$checkQuestion = F2(
 	function (model, q) {
 		var variant = A2($author$project$Main$getVariant, model, q);
@@ -9407,30 +9433,6 @@ var $author$project$Main$pointsCount = function (model) {
 	return A3($elm$core$List$foldl, count, 0, results);
 };
 var $rtfeldman$elm_css$Css$PtUnits = 0;
-var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
-	function (units, unitLabel, numericValue) {
-		return {
-			bg: 0,
-			bp: 0,
-			ad: 0,
-			n: 0,
-			az: 0,
-			ah: 0,
-			I: 0,
-			ai: 0,
-			aj: 0,
-			R: 0,
-			S: 0,
-			A: 0,
-			K: numericValue,
-			ap: 0,
-			ar: unitLabel,
-			aK: units,
-			C: _Utils_ap(
-				$elm$core$String$fromFloat(numericValue),
-				unitLabel)
-		};
-	});
 var $rtfeldman$elm_css$Css$pt = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'pt');
 var $rtfeldman$elm_css$Css$PxUnits = 0;
 var $rtfeldman$elm_css$Css$px = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'px');
@@ -9519,8 +9521,6 @@ var $author$project$Main$nextQuestion = function (model) {
 			questions));
 };
 var $rtfeldman$elm_css$Css$none = {Y: 0, bn: 0, p: 0, a: 0, f: 0, cm: 0, bD: 0, a4: 0, aj: 0, R: 0, A: 0, c: 0, b: 0, a6: 0, aW: 0, cv: 0, x: 0, aX: 0, cz: 0, ao: 0, W: 0, s: 0, e: 0, cH: 0, C: 'none'};
-var $rtfeldman$elm_css$Css$PercentageUnits = 0;
-var $rtfeldman$elm_css$Css$pct = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '%');
 var $rtfeldman$elm_css$Css$rgba = F4(
 	function (r, g, b, alpha) {
 		return {
@@ -9877,10 +9877,10 @@ var $author$project$Main$viewBody = function (model) {
 					_List_fromArray(
 						[
 							$rtfeldman$elm_css$Css$width(
-							$rtfeldman$elm_css$Css$px(460)),
+							$rtfeldman$elm_css$Css$pct(100)),
 							A2(
 							$rtfeldman$elm_css$Css$margin2,
-							$rtfeldman$elm_css$Css$px(20),
+							$rtfeldman$elm_css$Css$px(0),
 							$rtfeldman$elm_css$Css$auto),
 							$rtfeldman$elm_css$Css$fontFamily($rtfeldman$elm_css$Css$sansSerif),
 							$rtfeldman$elm_css$Css$fontSize(
