@@ -2718,7 +2718,7 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		K: func(record.K),
+		L: func(record.L),
 		be: record.be,
 		ba: record.ba
 	}
@@ -2988,7 +2988,7 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.K;
+		var message = !tag ? value : tag < 3 ? value.a : value.L;
 		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.be;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
@@ -5055,25 +5055,25 @@ var $elm$core$Array$treeFromBuilder = F2(
 	});
 var $elm$core$Array$builderToArray = F2(
 	function (reverseNodeList, builder) {
-		if (!builder.g) {
+		if (!builder.h) {
 			return A4(
 				$elm$core$Array$Array_elm_builtin,
-				$elm$core$Elm$JsArray$length(builder.j),
+				$elm$core$Elm$JsArray$length(builder.k),
 				$elm$core$Array$shiftStep,
 				$elm$core$Elm$JsArray$empty,
-				builder.j);
+				builder.k);
 		} else {
-			var treeLen = builder.g * $elm$core$Array$branchFactor;
+			var treeLen = builder.h * $elm$core$Array$branchFactor;
 			var depth = $elm$core$Basics$floor(
 				A2($elm$core$Basics$logBase, $elm$core$Array$branchFactor, treeLen - 1));
-			var correctNodeList = reverseNodeList ? $elm$core$List$reverse(builder.k) : builder.k;
-			var tree = A2($elm$core$Array$treeFromBuilder, correctNodeList, builder.g);
+			var correctNodeList = reverseNodeList ? $elm$core$List$reverse(builder.l) : builder.l;
+			var tree = A2($elm$core$Array$treeFromBuilder, correctNodeList, builder.h);
 			return A4(
 				$elm$core$Array$Array_elm_builtin,
-				$elm$core$Elm$JsArray$length(builder.j) + treeLen,
+				$elm$core$Elm$JsArray$length(builder.k) + treeLen,
 				A2($elm$core$Basics$max, 5, depth * $elm$core$Array$shiftStep),
 				tree,
-				builder.j);
+				builder.k);
 		}
 	});
 var $elm$core$Basics$idiv = _Basics_idiv;
@@ -5086,7 +5086,7 @@ var $elm$core$Array$initializeHelp = F5(
 				return A2(
 					$elm$core$Array$builderToArray,
 					false,
-					{k: nodeList, g: (len / $elm$core$Array$branchFactor) | 0, j: tail});
+					{l: nodeList, h: (len / $elm$core$Array$branchFactor) | 0, k: tail});
 			} else {
 				var leaf = $elm$core$Array$Leaf(
 					A3($elm$core$Elm$JsArray$initialize, $elm$core$Array$branchFactor, fromIndex, fn));
@@ -5451,7 +5451,7 @@ var $elm$time$Time$millisToPosix = $elm$core$Basics$identity;
 var $elm$time$Time$now = _Time_now($elm$time$Time$millisToPosix);
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
-		{F: 1, aQ: $elm$core$Maybe$Nothing, P: false, ak: _List_Nil, h: _List_Nil, aF: 0},
+		{F: 1, aQ: $elm$core$Maybe$Nothing, G: false, ak: _List_Nil, i: _List_Nil, aF: 0},
 		A2($elm$core$Task$perform, $author$project$Main$SetSeed, $elm$time$Time$now));
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
@@ -7807,7 +7807,7 @@ var $elm$url$Url$Builder$absolute = F2(
 	});
 var $author$project$Main$ApiData = F2(
 	function (questions, levels) {
-		return {ak: levels, h: questions};
+		return {ak: levels, i: questions};
 	});
 var $author$project$Main$Level = F3(
 	function (name, points, recommendations) {
@@ -7815,11 +7815,11 @@ var $author$project$Main$Level = F3(
 	});
 var $author$project$Main$Question = F4(
 	function (id, variants, answer, recommendation) {
-		return {l: answer, s: id, bS: recommendation, b5: variants};
+		return {f: answer, s: id, bS: recommendation, b5: variants};
 	});
 var $author$project$Main$Variant = F3(
 	function (sentence, options, answer) {
-		return {l: answer, aC: options, bb: sentence};
+		return {f: answer, aC: options, bb: sentence};
 	});
 var $elm$json$Json$Decode$field = _Json_decodeField;
 var $elm$json$Json$Decode$int = _Json_decodeInt;
@@ -8705,7 +8705,7 @@ var $author$project$Main$getVariant = F2(
 			var v = _v0.a;
 			return v;
 		} else {
-			return {l: 'ok', aC: _List_Nil, bb: ''};
+			return {f: 'ok', aC: _List_Nil, bb: ''};
 		}
 	});
 var $author$project$Main$setRandomAnswers = function (model) {
@@ -8716,15 +8716,15 @@ var $author$project$Main$setRandomAnswers = function (model) {
 				$author$project$Main$shuffleList,
 				model,
 				q.s,
-				A2($elm$core$List$cons, variant.l, variant.aC)));
+				A2($elm$core$List$cons, variant.f, variant.aC)));
 		return _Utils_update(
 			q,
-			{l: answer});
+			{f: answer});
 	};
-	var newQuestions = A2($elm$core$List$map, setAnswer, model.h);
+	var newQuestions = A2($elm$core$List$map, setAnswer, model.i);
 	return _Utils_update(
 		model,
-		{h: newQuestions});
+		{i: newQuestions});
 };
 var $author$project$Main$setRightAnswers = function (model) {
 	var setAnswer = function (q) {
@@ -8732,13 +8732,13 @@ var $author$project$Main$setRightAnswers = function (model) {
 		return _Utils_update(
 			q,
 			{
-				l: $elm$core$Maybe$Just(variant.l)
+				f: $elm$core$Maybe$Just(variant.f)
 			});
 	};
-	var newQuestions = A2($elm$core$List$map, setAnswer, model.h);
+	var newQuestions = A2($elm$core$List$map, setAnswer, model.i);
 	return _Utils_update(
 		model,
-		{h: newQuestions});
+		{i: newQuestions});
 };
 var $author$project$Main$setWrongAnswers = function (model) {
 	var setAnswer = function (q) {
@@ -8746,13 +8746,13 @@ var $author$project$Main$setWrongAnswers = function (model) {
 		return _Utils_update(
 			q,
 			{
-				l: $elm$core$List$head(variant.aC)
+				f: $elm$core$List$head(variant.aC)
 			});
 	};
-	var newQuestions = A2($elm$core$List$map, setAnswer, model.h);
+	var newQuestions = A2($elm$core$List$map, setAnswer, model.i);
 	return _Utils_update(
 		model,
-		{h: newQuestions});
+		{i: newQuestions});
 };
 var $author$project$Main$update = F2(
 	function (msg, model) {
@@ -8763,14 +8763,14 @@ var $author$project$Main$update = F2(
 					return A2($author$project$Main$questionIsCurremt, model, q) ? _Utils_update(
 						q,
 						{
-							l: $elm$core$Maybe$Just(answer)
+							f: $elm$core$Maybe$Just(answer)
 						}) : q;
 				};
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-							h: A2($elm$core$List$map, updateQuestion, model.h)
+							i: A2($elm$core$List$map, updateQuestion, model.i)
 						}),
 					$elm$core$Platform$Cmd$none);
 			case 0:
@@ -8787,7 +8787,7 @@ var $author$project$Main$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{F: 1, ak: data.ak, h: data.h}),
+							{F: 1, ak: data.ak, i: data.i}),
 						$elm$core$Platform$Cmd$none);
 				} else {
 					var err = result.a;
@@ -8830,7 +8830,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{P: true}),
+						{G: true}),
 					$elm$core$Platform$Cmd$none);
 			case 5:
 				return _Utils_Tuple2(
@@ -8850,7 +8850,7 @@ var $author$project$Main$SetRandomAnswers = {$: 6};
 var $author$project$Main$SetRightAnswers = {$: 5};
 var $author$project$Main$SetWrongAnswers = {$: 7};
 var $rtfeldman$elm_css$Css$Structure$Compatible = 0;
-var $rtfeldman$elm_css$Css$auto = {cb: 0, a: 0, ad: 0, aS: 0, cq: 0, ah: 0, J: 0, A: 0, al: 0, x: 0, a_: 0, aq: 0, t: 0, C: 'auto'};
+var $rtfeldman$elm_css$Css$auto = {cb: 0, a: 0, ad: 0, aS: 0, cq: 0, ah: 0, K: 0, A: 0, al: 0, x: 0, a_: 0, aq: 0, t: 0, C: 'auto'};
 var $rtfeldman$elm_css$Css$Preprocess$AppendProperty = function (a) {
 	return {$: 0, a: a};
 };
@@ -8924,9 +8924,8 @@ var $author$project$Main$getQuestion = F2(
 				function (q) {
 					return _Utils_eq(q.s, id);
 				},
-				model.h));
+				model.i));
 	});
-var $rtfeldman$elm_css$Css$height = $rtfeldman$elm_css$Css$prop1('height');
 var $rtfeldman$elm_css$Css$withPrecedingHash = function (str) {
 	return A2($elm$core$String$startsWith, '#', str) ? str : A2($elm$core$String$cons, '#', str);
 };
@@ -9348,7 +9347,7 @@ var $rtfeldman$elm_css$Css$num = function (val) {
 		A: 0,
 		aB: 0,
 		aU: 0,
-		L: val,
+		M: val,
 		ar: '',
 		aK: 0,
 		C: $elm$core$String$fromFloat(val)
@@ -9391,13 +9390,13 @@ var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 			n: 0,
 			az: 0,
 			ah: 0,
-			J: 0,
+			K: 0,
 			ai: 0,
 			aj: 0,
 			S: 0,
 			T: 0,
 			A: 0,
-			L: numericValue,
+			M: numericValue,
 			ap: 0,
 			ar: unitLabel,
 			aK: units,
@@ -9410,19 +9409,19 @@ var $rtfeldman$elm_css$Css$pct = A2($rtfeldman$elm_css$Css$Internal$lengthConver
 var $author$project$Main$checkQuestion = F2(
 	function (model, q) {
 		var variant = A2($author$project$Main$getVariant, model, q);
-		var _v0 = q.l;
+		var _v0 = q.f;
 		if (_v0.$ === 1) {
 			return false;
 		} else {
 			var answer = _v0.a;
-			return _Utils_eq(answer, variant.l);
+			return _Utils_eq(answer, variant.f);
 		}
 	});
 var $author$project$Main$pointsCount = function (model) {
 	var results = A2(
 		$elm$core$List$map,
 		$author$project$Main$checkQuestion(model),
-		model.h);
+		model.i);
 	var count = F2(
 		function (result, i) {
 			if (result) {
@@ -9502,7 +9501,7 @@ var $author$project$Main$nextMistake = function (model) {
 		function (q) {
 			return _Utils_cmp(q.s, model.F) < 1;
 		},
-		model.h);
+		model.i);
 	var past = _v0.a;
 	var future = _v0.b;
 	var questions = _Utils_ap(future, past);
@@ -9521,7 +9520,7 @@ var $author$project$Main$nextQuestion = function (model) {
 		function (q) {
 			return _Utils_cmp(q.s, model.F) < 1;
 		},
-		model.h);
+		model.i);
 	var past = _v0.a;
 	var future = _v0.b;
 	var questions = _Utils_ap(future, past);
@@ -9529,11 +9528,11 @@ var $author$project$Main$nextQuestion = function (model) {
 		A2(
 			$elm$core$List$filter,
 			function (q) {
-				return _Utils_eq(q.l, $elm$core$Maybe$Nothing);
+				return _Utils_eq(q.f, $elm$core$Maybe$Nothing);
 			},
 			questions));
 };
-var $rtfeldman$elm_css$Css$none = {Z: 0, bn: 0, p: 0, a: 0, f: 0, cn: 0, bD: 0, a4: 0, aj: 0, S: 0, A: 0, c: 0, b: 0, a6: 0, aW: 0, cw: 0, x: 0, aX: 0, cz: 0, ao: 0, X: 0, t: 0, e: 0, cH: 0, C: 'none'};
+var $rtfeldman$elm_css$Css$none = {Z: 0, bn: 0, p: 0, a: 0, g: 0, cn: 0, bD: 0, a4: 0, aj: 0, S: 0, A: 0, c: 0, b: 0, a6: 0, aW: 0, cw: 0, x: 0, aX: 0, cz: 0, ao: 0, X: 0, t: 0, e: 0, cH: 0, C: 'none'};
 var $rtfeldman$elm_css$Css$rgba = F4(
 	function (r, g, b, alpha) {
 		return {
@@ -9576,7 +9575,7 @@ var $author$project$Main$viewActionButton = function (model) {
 				$rtfeldman$elm_css$Css$backgroundColor(
 				A4($rtfeldman$elm_css$Css$rgba, 255, 255, 255, 0.8))
 			]));
-	if (model.P) {
+	if (model.G) {
 		var _v0 = $author$project$Main$nextMistake(model);
 		if (_v0.$ === 1) {
 			return $rtfeldman$elm_css$Html$Styled$text('YOU ARE AWESOME!');
@@ -9679,7 +9678,8 @@ var $rtfeldman$elm_css$Css$borderBottom3 = $rtfeldman$elm_css$Css$prop3('border-
 var $rtfeldman$elm_css$Css$center = $rtfeldman$elm_css$Css$prop1('center');
 var $rtfeldman$elm_css$Css$cursor = $rtfeldman$elm_css$Css$prop1('cursor');
 var $rtfeldman$elm_css$Css$display = $rtfeldman$elm_css$Css$prop1('display');
-var $rtfeldman$elm_css$Css$inlineBlock = {f: 0, C: 'inline-block'};
+var $rtfeldman$elm_css$Css$height = $rtfeldman$elm_css$Css$prop1('height');
+var $rtfeldman$elm_css$Css$inlineBlock = {g: 0, C: 'inline-block'};
 var $rtfeldman$elm_css$Css$pointer = {a: 0, C: 'pointer'};
 var $rtfeldman$elm_css$Css$solid = {p: 0, W: 0, C: 'solid'};
 var $rtfeldman$elm_css$Html$Styled$span = $rtfeldman$elm_css$Html$Styled$node('span');
@@ -9759,10 +9759,10 @@ var $rtfeldman$elm_css$Css$transparent = {z: 0, C: 'transparent'};
 var $author$project$Main$viewQuestionColor = F2(
 	function (model, q) {
 		var result = A2($author$project$Main$checkQuestion, model, q);
-		if (model.P) {
+		if (model.G) {
 			return result ? $rtfeldman$elm_css$Css$hex('44AA44') : $rtfeldman$elm_css$Css$hex('AA4444');
 		} else {
-			var _v0 = q.l;
+			var _v0 = q.f;
 			if (_v0.$ === 1) {
 				return A4($rtfeldman$elm_css$Css$rgba, 0, 0, 0, 0.8);
 			} else {
@@ -9819,13 +9819,13 @@ var $author$project$Main$viewQuestions = function (model) {
 	return A2(
 		$rtfeldman$elm_css$Html$Styled$div,
 		_List_Nil,
-		A2($elm$core$List$map, qButton, model.h));
+		A2($elm$core$List$map, qButton, model.i));
 };
 var $rtfeldman$elm_css$Html$Styled$article = $rtfeldman$elm_css$Html$Styled$node('article');
 var $rtfeldman$elm_css$Html$Styled$h2 = $rtfeldman$elm_css$Html$Styled$node('h2');
 var $elm$core$List$sortBy = _List_sortBy;
 var $author$project$Main$viewResume = function (model) {
-	if (model.P) {
+	if (model.G) {
 		var points = $author$project$Main$pointsCount(model);
 		var maybeLevel = $elm$core$List$head(
 			$elm$core$List$reverse(
@@ -9866,7 +9866,7 @@ var $author$project$Main$viewResume = function (model) {
 var $rtfeldman$elm_css$Html$Styled$p = $rtfeldman$elm_css$Html$Styled$node('p');
 var $author$project$Main$viewRule = F2(
 	function (model, q) {
-		return model.P ? A2(
+		return model.G ? A2(
 			$rtfeldman$elm_css$Html$Styled$p,
 			_List_Nil,
 			_List_fromArray(
@@ -9880,6 +9880,122 @@ var $author$project$Main$viewRule = F2(
 					$rtfeldman$elm_css$Html$Styled$text('Chose right option and click Next')
 				]));
 	});
+var $rtfeldman$elm_css$Css$bold = {J: 0, C: 'bold'};
+var $rtfeldman$elm_css$Css$fontStyle = $rtfeldman$elm_css$Css$prop1('font-style');
+var $rtfeldman$elm_css$Css$fontWeight = function (_v0) {
+	var value = _v0.C;
+	return A2($rtfeldman$elm_css$Css$property, 'font-weight', value);
+};
+var $rtfeldman$elm_css$Css$italic = {ae: 0, C: 'italic'};
+var $rtfeldman$elm_css$Css$lineThrough = {ao: 0, C: 'line-through'};
+var $rtfeldman$elm_css$Css$textDecoration = $rtfeldman$elm_css$Css$prop1('text-decoration');
+var $author$project$Main$unwrap = F3(
+	function (_default, f, m) {
+		if (m.$ === 1) {
+			return _default;
+		} else {
+			var a = m.a;
+			return f(a);
+		}
+	});
+var $author$project$Main$viewSentence = F2(
+	function (model, q) {
+		var variant = A2($author$project$Main$getVariant, model, q);
+		var answerText = A3($author$project$Main$unwrap, '...', $elm$core$Basics$identity, q.f);
+		var _v0 = function () {
+			var _v1 = A2($elm$core$String$split, '{{answer}}', variant.bb);
+			if (_v1.b && _v1.b.b) {
+				var a = _v1.a;
+				var _v2 = _v1.b;
+				var b = _v2.a;
+				return _Utils_Tuple2(
+					$rtfeldman$elm_css$Html$Styled$text(a),
+					$rtfeldman$elm_css$Html$Styled$text(b));
+			} else {
+				return _Utils_Tuple2(
+					$rtfeldman$elm_css$Html$Styled$text(''),
+					$rtfeldman$elm_css$Html$Styled$text(''));
+			}
+		}();
+		var firstPart = _v0.a;
+		var secondPart = _v0.b;
+		var sentenceParts = model.G ? ((!_Utils_eq(answerText, variant.f)) ? _List_fromArray(
+			[
+				firstPart,
+				A2(
+				$rtfeldman$elm_css$Html$Styled$span,
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$Attributes$css(
+						_List_fromArray(
+							[
+								$rtfeldman$elm_css$Css$color(
+								$rtfeldman$elm_css$Css$hex('aa2222')),
+								$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$lineThrough)
+							]))
+					]),
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$text(answerText)
+					])),
+				$rtfeldman$elm_css$Html$Styled$text(' '),
+				A2(
+				$rtfeldman$elm_css$Html$Styled$span,
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$Attributes$css(
+						_List_fromArray(
+							[
+								$rtfeldman$elm_css$Css$color(
+								$rtfeldman$elm_css$Css$hex('22aa22'))
+							]))
+					]),
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$text(variant.f)
+					])),
+				secondPart
+			]) : _List_fromArray(
+			[
+				firstPart,
+				A2(
+				$rtfeldman$elm_css$Html$Styled$span,
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$Attributes$css(
+						_List_fromArray(
+							[
+								$rtfeldman$elm_css$Css$color(
+								$rtfeldman$elm_css$Css$hex('22aa22'))
+							]))
+					]),
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$text(answerText)
+					])),
+				secondPart
+			])) : _List_fromArray(
+			[
+				firstPart,
+				A2(
+				$rtfeldman$elm_css$Html$Styled$span,
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$Attributes$css(
+						_List_fromArray(
+							[
+								$rtfeldman$elm_css$Css$fontStyle($rtfeldman$elm_css$Css$italic),
+								$rtfeldman$elm_css$Css$fontWeight($rtfeldman$elm_css$Css$bold)
+							]))
+					]),
+				_List_fromArray(
+					[
+						$rtfeldman$elm_css$Html$Styled$text(answerText)
+					])),
+				secondPart
+			]);
+		return A2($rtfeldman$elm_css$Html$Styled$p, _List_Nil, sentenceParts);
+	});
 var $author$project$Main$viewBody = function (model) {
 	var _v0 = A2($author$project$Main$getQuestion, model, model.F);
 	if (!_v0.$) {
@@ -9889,9 +10005,9 @@ var $author$project$Main$viewBody = function (model) {
 			$author$project$Main$shuffleList,
 			model,
 			q.s,
-			A2($elm$core$List$cons, variant.l, variant.aC));
+			A2($elm$core$List$cons, variant.f, variant.aC));
 		var answerText = function () {
-			var _v1 = q.l;
+			var _v1 = q.f;
 			if (!_v1.$) {
 				var answer = _v1.a;
 				return answer;
@@ -9933,25 +10049,7 @@ var $author$project$Main$viewBody = function (model) {
 				]),
 			_List_fromArray(
 				[
-					A2(
-					$rtfeldman$elm_css$Html$Styled$div,
-					_List_fromArray(
-						[
-							$rtfeldman$elm_css$Html$Styled$Attributes$css(
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Css$height(
-									$rtfeldman$elm_css$Css$px(120))
-								]))
-						]),
-					_List_fromArray(
-						[
-							$rtfeldman$elm_css$Html$Styled$text(
-							A2(
-								$elm$core$String$join,
-								answerText,
-								A2($elm$core$String$split, '{{answer}}', variant.bb)))
-						])),
+					A2($author$project$Main$viewSentence, model, q),
 					A2($author$project$Main$viewRule, model, q),
 					A2(
 					$rtfeldman$elm_css$Html$Styled$ul,
@@ -9968,7 +10066,7 @@ var $author$project$Main$viewBody = function (model) {
 						]),
 					A2(
 						$elm$core$List$map,
-						$author$project$Main$viewOption(q.l),
+						$author$project$Main$viewOption(q.f),
 						options)),
 					$author$project$Main$viewActionButton(model),
 					$author$project$Main$viewQuestions(model),
