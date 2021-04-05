@@ -86,7 +86,15 @@ nextQuestion model =
 
 nextMistake : Model -> Maybe Question
 nextMistake model =
-    List.filter (checkQuestion model) model.questions |> List.head
+    let
+        ( past, future ) =
+            List.partition (\q -> q.id <= model.currentQuestionId) model.questions
+
+        questions =
+            future ++ past
+    in
+    List.filter (not << checkQuestion model) questions |> List.head
+
 
 
 numberOfPoints : Model -> Int
@@ -376,6 +384,7 @@ viewBody model =
             div
                 [ css
                     [ width (pct 100)
+                    , minHeight (pct 100)
                     , margin2 (px 0) auto
                     , fontFamily sansSerif
                     , fontSize (pt 18)
@@ -388,6 +397,7 @@ viewBody model =
                     [ css [ height (px 120) ]
                     ]
                     [ String.split "{{answer}}" variant.sentence |> String.join answerText |> text ]
+                , viewRule model q
                 , ul [ css [ margin (px 0), padding (px 0) ] ] <| List.map (viewOption q.answer) options
                 , viewActionButton model
                 , viewQuestions model
@@ -425,6 +435,13 @@ viewBody model =
             div [] [ text message ]
 
 
+viewRule : Model -> Question -> Html Msg
+viewRule model q =
+    if model.finished then
+        p [] [ text q.recommendation ]
+    else
+        p [] [ text "Chose right option and click Next" ]
+
 viewActionButton : Model -> Html Msg
 viewActionButton model =
     let
@@ -449,7 +466,7 @@ viewActionButton model =
                     [ onClick (ChoseQuestion q.id)
                     , style
                     ]
-                    [ text <| "Next rule" ]
+                    [ text <| "Next mistake" ]
 
     else
         case nextQuestion model of
