@@ -8846,9 +8846,6 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
-var $author$project$Main$SetRandomAnswers = {$: 6};
-var $author$project$Main$SetRightAnswers = {$: 5};
-var $author$project$Main$SetWrongAnswers = {$: 7};
 var $rtfeldman$elm_css$Css$Structure$Compatible = 0;
 var $rtfeldman$elm_css$Css$auto = {cb: 0, a: 0, ad: 0, aS: 0, cq: 0, ah: 0, K: 0, A: 0, al: 0, x: 0, a_: 0, aq: 0, t: 0, C: 'auto'};
 var $rtfeldman$elm_css$Css$Preprocess$AppendProperty = function (a) {
@@ -8863,14 +8860,6 @@ var $rtfeldman$elm_css$Css$prop1 = F2(
 		return A2($rtfeldman$elm_css$Css$property, key, arg.C);
 	});
 var $rtfeldman$elm_css$Css$backgroundImage = $rtfeldman$elm_css$Css$prop1('background-image');
-var $rtfeldman$elm_css$VirtualDom$Styled$Node = F3(
-	function (a, b, c) {
-		return {$: 0, a: a, b: b, c: c};
-	});
-var $rtfeldman$elm_css$VirtualDom$Styled$node = $rtfeldman$elm_css$VirtualDom$Styled$Node;
-var $rtfeldman$elm_css$Html$Styled$node = $rtfeldman$elm_css$VirtualDom$Styled$node;
-var $rtfeldman$elm_css$Html$Styled$br = $rtfeldman$elm_css$Html$Styled$node('br');
-var $rtfeldman$elm_css$Html$Styled$button = $rtfeldman$elm_css$Html$Styled$node('button');
 var $rtfeldman$elm_css$Css$color = function (c) {
 	return A2($rtfeldman$elm_css$Css$property, 'color', c.C);
 };
@@ -8913,6 +8902,12 @@ var $rtfeldman$elm_css$Html$Styled$Internal$css = function (styles) {
 	return A3($rtfeldman$elm_css$VirtualDom$Styled$Attribute, classProperty, styles, classname);
 };
 var $rtfeldman$elm_css$Html$Styled$Attributes$css = $rtfeldman$elm_css$Html$Styled$Internal$css;
+var $rtfeldman$elm_css$VirtualDom$Styled$Node = F3(
+	function (a, b, c) {
+		return {$: 0, a: a, b: b, c: c};
+	});
+var $rtfeldman$elm_css$VirtualDom$Styled$node = $rtfeldman$elm_css$VirtualDom$Styled$Node;
+var $rtfeldman$elm_css$Html$Styled$node = $rtfeldman$elm_css$VirtualDom$Styled$node;
 var $rtfeldman$elm_css$Html$Styled$div = $rtfeldman$elm_css$Html$Styled$node('div');
 var $rtfeldman$elm_css$Css$fontFamily = $rtfeldman$elm_css$Css$prop1('font-family');
 var $rtfeldman$elm_css$Css$fontSize = $rtfeldman$elm_css$Css$prop1('font-size');
@@ -9337,50 +9332,9 @@ var $rtfeldman$elm_css$Css$prop2 = F3(
 					[argA.C, argB.C])));
 	});
 var $rtfeldman$elm_css$Css$margin2 = $rtfeldman$elm_css$Css$prop2('margin');
-var $rtfeldman$elm_css$Css$marginTop = $rtfeldman$elm_css$Css$prop1('margin-top');
-var $rtfeldman$elm_css$Css$minHeight = $rtfeldman$elm_css$Css$prop1('min-height');
-var $rtfeldman$elm_css$Css$UnitlessFloat = 0;
-var $elm$core$String$fromFloat = _String_fromNumber;
-var $rtfeldman$elm_css$Css$num = function (val) {
-	return {
-		T: 0,
-		A: 0,
-		aB: 0,
-		aU: 0,
-		M: val,
-		ar: '',
-		aK: 0,
-		C: $elm$core$String$fromFloat(val)
-	};
-};
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 0, a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $rtfeldman$elm_css$VirtualDom$Styled$on = F2(
-	function (eventName, handler) {
-		return A3(
-			$rtfeldman$elm_css$VirtualDom$Styled$Attribute,
-			A2($elm$virtual_dom$VirtualDom$on, eventName, handler),
-			_List_Nil,
-			'');
-	});
-var $rtfeldman$elm_css$Html$Styled$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$rtfeldman$elm_css$VirtualDom$Styled$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $rtfeldman$elm_css$Html$Styled$Events$onClick = function (msg) {
-	return A2(
-		$rtfeldman$elm_css$Html$Styled$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $rtfeldman$elm_css$Css$opacity = $rtfeldman$elm_css$Css$prop1('opacity');
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
-var $rtfeldman$elm_css$Css$PercentageUnits = 0;
+var $rtfeldman$elm_css$Css$PtUnits = 0;
+var $elm$core$String$fromFloat = _String_fromNumber;
 var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 	function (units, unitLabel, numericValue) {
 		return {
@@ -9405,34 +9359,6 @@ var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 				unitLabel)
 		};
 	});
-var $rtfeldman$elm_css$Css$pct = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '%');
-var $author$project$Main$checkQuestion = F2(
-	function (model, q) {
-		var variant = A2($author$project$Main$getVariant, model, q);
-		var _v0 = q.f;
-		if (_v0.$ === 1) {
-			return false;
-		} else {
-			var answer = _v0.a;
-			return _Utils_eq(answer, variant.f);
-		}
-	});
-var $author$project$Main$pointsCount = function (model) {
-	var results = A2(
-		$elm$core$List$map,
-		$author$project$Main$checkQuestion(model),
-		model.i);
-	var count = F2(
-		function (result, i) {
-			if (result) {
-				return i + 1;
-			} else {
-				return i;
-			}
-		});
-	return A3($elm$core$List$foldl, count, 0, results);
-};
-var $rtfeldman$elm_css$Css$PtUnits = 0;
 var $rtfeldman$elm_css$Css$pt = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'pt');
 var $rtfeldman$elm_css$Css$PxUnits = 0;
 var $rtfeldman$elm_css$Css$px = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'px');
@@ -9476,7 +9402,19 @@ var $rtfeldman$elm_css$Css$backgroundColor = function (c) {
 };
 var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-radius');
 var $rtfeldman$elm_css$Css$borderStyle = $rtfeldman$elm_css$Css$prop1('border-style');
+var $rtfeldman$elm_css$Html$Styled$button = $rtfeldman$elm_css$Html$Styled$node('button');
 var $rtfeldman$elm_css$Css$lineHeight = $rtfeldman$elm_css$Css$prop1('line-height');
+var $author$project$Main$checkQuestion = F2(
+	function (model, q) {
+		var variant = A2($author$project$Main$getVariant, model, q);
+		var _v0 = q.f;
+		if (_v0.$ === 1) {
+			return false;
+		} else {
+			var answer = _v0.a;
+			return _Utils_eq(answer, variant.f);
+		}
+	});
 var $elm$core$List$partition = F2(
 	function (pred, list) {
 		var step = F2(
@@ -9533,6 +9471,33 @@ var $author$project$Main$nextQuestion = function (model) {
 			questions));
 };
 var $rtfeldman$elm_css$Css$none = {Z: 0, bn: 0, p: 0, a: 0, g: 0, cn: 0, bD: 0, a4: 0, aj: 0, S: 0, A: 0, c: 0, b: 0, a6: 0, aW: 0, cw: 0, x: 0, aX: 0, cz: 0, ao: 0, X: 0, t: 0, e: 0, cH: 0, C: 'none'};
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 0, a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $rtfeldman$elm_css$VirtualDom$Styled$on = F2(
+	function (eventName, handler) {
+		return A3(
+			$rtfeldman$elm_css$VirtualDom$Styled$Attribute,
+			A2($elm$virtual_dom$VirtualDom$on, eventName, handler),
+			_List_Nil,
+			'');
+	});
+var $rtfeldman$elm_css$Html$Styled$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$rtfeldman$elm_css$VirtualDom$Styled$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $rtfeldman$elm_css$Html$Styled$Events$onClick = function (msg) {
+	return A2(
+		$rtfeldman$elm_css$Html$Styled$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $rtfeldman$elm_css$Css$PercentageUnits = 0;
+var $rtfeldman$elm_css$Css$pct = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, '%');
 var $rtfeldman$elm_css$Css$rgba = F4(
 	function (r, g, b, alpha) {
 		return {
@@ -9683,25 +9648,12 @@ var $author$project$Main$viewOption = F2(
 					$rtfeldman$elm_css$Html$Styled$text(option)
 				]));
 	});
-var $rtfeldman$elm_css$Css$prop3 = F4(
-	function (key, argA, argB, argC) {
-		return A2(
-			$rtfeldman$elm_css$Css$property,
-			key,
-			A2(
-				$elm$core$String$join,
-				' ',
-				_List_fromArray(
-					[argA.C, argB.C, argC.C])));
-	});
-var $rtfeldman$elm_css$Css$borderBottom3 = $rtfeldman$elm_css$Css$prop3('border-bottom');
 var $rtfeldman$elm_css$Css$center = $rtfeldman$elm_css$Css$prop1('center');
 var $rtfeldman$elm_css$Css$cursor = $rtfeldman$elm_css$Css$prop1('cursor');
 var $rtfeldman$elm_css$Css$display = $rtfeldman$elm_css$Css$prop1('display');
 var $rtfeldman$elm_css$Css$height = $rtfeldman$elm_css$Css$prop1('height');
 var $rtfeldman$elm_css$Css$inlineBlock = {g: 0, C: 'inline-block'};
 var $rtfeldman$elm_css$Css$pointer = {a: 0, C: 'pointer'};
-var $rtfeldman$elm_css$Css$solid = {p: 0, W: 0, C: 'solid'};
 var $rtfeldman$elm_css$Html$Styled$span = $rtfeldman$elm_css$Html$Styled$node('span');
 var $rtfeldman$elm_css$Css$Preprocess$ApplyStyles = function (a) {
 	return {$: 6, a: a};
@@ -9775,7 +9727,6 @@ var $rtfeldman$elm_css$Css$textAlign = function (fn) {
 		'text-align',
 		fn($rtfeldman$elm_css$Css$Internal$lengthForOverloadedProperty));
 };
-var $rtfeldman$elm_css$Css$transparent = {z: 0, C: 'transparent'};
 var $author$project$Main$viewQuestionColor = F2(
 	function (model, q) {
 		var result = A2($author$project$Main$checkQuestion, model, q);
@@ -9792,15 +9743,8 @@ var $author$project$Main$viewQuestionColor = F2(
 	});
 var $author$project$Main$viewQuestions = function (model) {
 	var qCursor = function (q) {
-		return A2($author$project$Main$questionIsCurremt, model, q) ? A3(
-			$rtfeldman$elm_css$Css$borderBottom3,
-			$rtfeldman$elm_css$Css$px(2),
-			$rtfeldman$elm_css$Css$solid,
-			$rtfeldman$elm_css$Css$hex('fff')) : A3(
-			$rtfeldman$elm_css$Css$borderBottom3,
-			$rtfeldman$elm_css$Css$px(2),
-			$rtfeldman$elm_css$Css$solid,
-			$rtfeldman$elm_css$Css$transparent);
+		return A2($author$project$Main$questionIsCurremt, model, q) ? $rtfeldman$elm_css$Html$Styled$text('🐸') : $rtfeldman$elm_css$Html$Styled$text(
+			$elm$core$String$fromInt(q.s));
 	};
 	var qButton = function (q) {
 		return A2(
@@ -9826,14 +9770,12 @@ var $author$project$Main$viewQuestions = function (model) {
 							$rtfeldman$elm_css$Css$color(
 							A2($author$project$Main$viewQuestionColor, model, q)),
 							$rtfeldman$elm_css$Css$fontSize(
-							$rtfeldman$elm_css$Css$px(15)),
-							qCursor(q)
+							$rtfeldman$elm_css$Css$px(15))
 						]))
 				]),
 			_List_fromArray(
 				[
-					$rtfeldman$elm_css$Html$Styled$text(
-					$elm$core$String$fromInt(q.s))
+					qCursor(q)
 				]));
 	};
 	return A2(
@@ -9842,6 +9784,21 @@ var $author$project$Main$viewQuestions = function (model) {
 		A2($elm$core$List$map, qButton, model.i));
 };
 var $rtfeldman$elm_css$Html$Styled$h2 = $rtfeldman$elm_css$Html$Styled$node('h2');
+var $author$project$Main$pointsCount = function (model) {
+	var results = A2(
+		$elm$core$List$map,
+		$author$project$Main$checkQuestion(model),
+		model.i);
+	var count = F2(
+		function (result, i) {
+			if (result) {
+				return i + 1;
+			} else {
+				return i;
+			}
+		});
+	return A3($elm$core$List$foldl, count, 0, results);
+};
 var $elm$core$List$sortBy = _List_sortBy;
 var $author$project$Main$viewResume = function (model) {
 	if (model.G) {
@@ -10031,10 +9988,6 @@ var $author$project$Main$viewBody = function (model) {
 					$rtfeldman$elm_css$Html$Styled$Attributes$css(
 					_List_fromArray(
 						[
-							$rtfeldman$elm_css$Css$width(
-							$rtfeldman$elm_css$Css$pct(100)),
-							$rtfeldman$elm_css$Css$minHeight(
-							$rtfeldman$elm_css$Css$pct(100)),
 							A2(
 							$rtfeldman$elm_css$Css$margin2,
 							$rtfeldman$elm_css$Css$px(0),
@@ -10078,86 +10031,7 @@ var $author$project$Main$viewBody = function (model) {
 						options)),
 					$author$project$Main$viewActionButton(model),
 					$author$project$Main$viewQuestions(model),
-					$author$project$Main$viewResume(model),
-					A2(
-					$rtfeldman$elm_css$Html$Styled$div,
-					_List_fromArray(
-						[
-							$rtfeldman$elm_css$Html$Styled$Attributes$css(
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Css$marginTop(
-									$rtfeldman$elm_css$Css$px(40)),
-									$rtfeldman$elm_css$Css$opacity(
-									$rtfeldman$elm_css$Css$num(0.2))
-								]))
-						]),
-					_List_fromArray(
-						[
-							$rtfeldman$elm_css$Html$Styled$text('Debug area:'),
-							A2(
-							$rtfeldman$elm_css$Html$Styled$div,
-							_List_Nil,
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$text(
-									'seed: ' + $elm$core$String$fromInt(model.aF)),
-									A2($rtfeldman$elm_css$Html$Styled$br, _List_Nil, _List_Nil),
-									$rtfeldman$elm_css$Html$Styled$text(
-									'right answers: ' + $elm$core$String$fromInt(
-										$author$project$Main$pointsCount(model)))
-								])),
-							A2(
-							$rtfeldman$elm_css$Html$Styled$button,
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$Events$onClick($author$project$Main$SetRightAnswers),
-									$rtfeldman$elm_css$Html$Styled$Attributes$css(
-									_List_fromArray(
-										[
-											$rtfeldman$elm_css$Css$fontSize(
-											$rtfeldman$elm_css$Css$px(18))
-										]))
-								]),
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$text('Answer all right')
-								])),
-							A2($rtfeldman$elm_css$Html$Styled$br, _List_Nil, _List_Nil),
-							A2(
-							$rtfeldman$elm_css$Html$Styled$button,
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$Events$onClick($author$project$Main$SetRandomAnswers),
-									$rtfeldman$elm_css$Html$Styled$Attributes$css(
-									_List_fromArray(
-										[
-											$rtfeldman$elm_css$Css$fontSize(
-											$rtfeldman$elm_css$Css$px(18))
-										]))
-								]),
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$text('Answer all random')
-								])),
-							A2($rtfeldman$elm_css$Html$Styled$br, _List_Nil, _List_Nil),
-							A2(
-							$rtfeldman$elm_css$Html$Styled$button,
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$Events$onClick($author$project$Main$SetWrongAnswers),
-									$rtfeldman$elm_css$Html$Styled$Attributes$css(
-									_List_fromArray(
-										[
-											$rtfeldman$elm_css$Css$fontSize(
-											$rtfeldman$elm_css$Css$px(18))
-										]))
-								]),
-							_List_fromArray(
-								[
-									$rtfeldman$elm_css$Html$Styled$text('Answer all wrong')
-								]))
-						]))
+					$author$project$Main$viewResume(model)
 				]));
 	} else {
 		var message = function () {
