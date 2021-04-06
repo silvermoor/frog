@@ -383,9 +383,7 @@ viewBody model =
             in
             div
                 [ css
-                    [ width (pct 100)
-                    , minHeight (pct 100)
-                    , margin2 (px 0) auto
+                    [ margin2 (px 0) auto
                     , fontFamily sansSerif
                     , fontSize (pt 18)
                     , color (rgb 80 80 80)
@@ -402,24 +400,7 @@ viewBody model =
                 , viewActionButton model
                 , viewQuestions model
                 , viewResume model
-                , div
-                    [ css
-                        [ marginTop (px 40)
-                        , num 0.2 |> opacity
-                        ]
-                    ]
-                    [ text "Debug area:"
-                    , div []
-                        [ text ("seed: " ++ String.fromInt model.seed)
-                        , br [] []
-                        , text ("right answers: " ++ (String.fromInt <| pointsCount model))
-                        ]
-                    , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer all right" ]
-                    , br [] []
-                    , button [ onClick SetRandomAnswers, css [ fontSize (px 18) ] ] [ text "Answer all random" ]
-                    , br [] []
-                    , button [ onClick SetWrongAnswers, css [ fontSize (px 18) ] ] [ text "Answer all wrong" ]
-                    ]
+                -- , viewDebug model
                 ]
 
         Nothing ->
@@ -433,6 +414,27 @@ viewBody model =
                             err
             in
             div [] [ text message ]
+
+
+viewDebug model =
+    div
+        [ css
+            [ marginTop (px 40)
+            , num 0.2 |> opacity
+            ]
+        ]
+        [ text "Debug area:"
+        , div []
+            [ text ("seed: " ++ String.fromInt model.seed)
+            , br [] []
+            , text ("right answers: " ++ (String.fromInt <| pointsCount model))
+            ]
+        , button [ onClick SetRightAnswers, css [ fontSize (px 18) ] ] [ text "Answer all right" ]
+        , br [] []
+        , button [ onClick SetRandomAnswers, css [ fontSize (px 18) ] ] [ text "Answer all random" ]
+        , br [] []
+        , button [ onClick SetWrongAnswers, css [ fontSize (px 18) ] ] [ text "Answer all wrong" ]
+        ]
 
 
 viewSentence : Model -> Question -> Html Msg
